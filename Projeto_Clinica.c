@@ -4,12 +4,16 @@
 void menu_prim (void);
 void menu_cadastro (void);
 void menu_atualizacao (void);
+void menu_pesquisa (void);
+void menu_deletar (void);
+
 
 int main (void){
     menu_prim();
     menu_cadastro();
     menu_atualizacao ();
-
+    menu_pesquisa();
+    menu_deletar();
     return 0;
 }
 
