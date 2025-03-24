@@ -6,7 +6,7 @@ void menu_cadastro (void);
 void menu_atualizacao (void);
 void menu_pesquisa (void);
 void menu_deletar (void);
-
+void informacoes (void);
 
 int main (void){
     menu_prim();
@@ -14,6 +14,7 @@ int main (void){
     menu_atualizacao ();
     menu_pesquisa();
     menu_deletar();
+    informacoes();
     return 0;
 }
 
