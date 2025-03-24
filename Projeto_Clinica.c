@@ -1,7 +1,15 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> //biblioteca para colorir o terminal
+
+void menu_prim(void);
+
 
 int main (void){
+    menu_prim();
+
+    return 0;
+}
+void menu_prim(void) {    
     system("color 0a");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -16,6 +24,8 @@ int main (void){
     printf("@@           3 -> PESQUISAR                                @@\n");
     printf("@@                                                         @@\n");
     printf("@@           4 -> DELETAR                                  @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@           5 -> INFORMACOES                              @@\n");
     printf("@@                                                         @@\n");
     printf("@@           0 -> SAIR                                     @@\n");
     printf("@@                                                         @@\n");
