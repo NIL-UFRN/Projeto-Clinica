@@ -3,11 +3,12 @@
 
 void menu_prim (void);
 void menu_cadastro (void);
-
+void menu_atualizacao (void);
 
 int main (void){
     menu_prim();
     menu_cadastro();
+    void menu_atualizacao ();
 
     return 0;
 }
@@ -58,7 +59,9 @@ void menu_cadastro (void) {
     printf("Precione a tecla ENTER para continuar...");
     getchar();
 
+}
 
+void menu_atualizacao (void) {
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
