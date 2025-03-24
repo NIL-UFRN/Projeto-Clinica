@@ -3,14 +3,17 @@
 
 void menu_prim (void);
 void menu_cadastro (void);
+void cadastrar_medico (void);
 void menu_atualizacao (void);
 void menu_pesquisa (void);
 void menu_deletar (void);
 void informacoes (void);
 
+
 int main (void){
     menu_prim();
     menu_cadastro();
+    cadastrar_medico();
     menu_atualizacao ();
     menu_pesquisa();
     menu_deletar();
