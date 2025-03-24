@@ -137,9 +137,9 @@ void informacoes (void) {
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@@                                                                         @@@\n");
     printf("@@@             Universidade Federal do Rio Grande do Norte                 @@@\n");
-    printf("@@@                 Centro de Ensino Superior do Seridó                     @@@\n");
-    printf("@@@               Departamento de Computação e Tecnologia                   @@@\n");
-    printf("@@@                  Disciplina DCT1106 -- Programação                      @@@\n");
+    printf("@@@                 Centro de Ensino Superior do Serido                     @@@\n");
+    printf("@@@               Departamento de Computacao e Tecnologia                   @@@\n");
+    printf("@@@                  Disciplina DCT1106 -- Programacao                      @@@\n");
     printf("@@@                  Projeto Agendamento para clinica Medica                @@@\n");
     printf("@@@        Developed by https://github.com/NIL-UFRN -- since Mar, 2025      @@@\n");
     printf("@@@                                                                         @@@\n");
@@ -147,11 +147,11 @@ void informacoes (void) {
     printf("@@@                                                                         @@@\n");
     printf("@@@              Sistema Agendamento para clinica Medica                    @@@\n");
     printf("@@@                                                                         @@@\n");
-    printf("@@@  Programa sera utilizado na disciplina DCT1106 - Programação, para      @@@\n");
+    printf("@@@  Programa sera utilizado na disciplina DCT1106 - Programacao, para      @@@\n");
     printf("@@@  fins de avaiacao, como modo do prefessor avaiar o desempenho ao longo  @@@\n");
     printf("@@@  da disciplina e colocar em pratita o assunto visto em aula.            @@@\n");
     printf("@@@                                                                         @@@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();  
 
