@@ -58,12 +58,30 @@ void menu_cadastro (void) {
     printf("@@                                                         @@\n");
     printf("@@           3 -> CADASTRAR CONSULTA                       @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           0 -> SAIR                                     @@\n");
+    printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
+} 
 
+void cadastrar_medico (void) {
+    system("cls || clear");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@                  CADASTRAR MEDICO                       @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@           NOME:                                         @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@           CPF:                                          @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@           ESPECIALIZACAO:                               @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("Precione a tecla ENTER para continuar...");
+    getchar();
 }
 
 void menu_atualizacao (void) {
@@ -80,7 +98,7 @@ void menu_atualizacao (void) {
     printf("@@                                                         @@\n");
     printf("@@           3 -> ATUALIZAR CONSULTA                       @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           0 -> SAIR                                     @@\n");
+    printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
@@ -101,7 +119,7 @@ void menu_pesquisa (void) {
     printf("@@                                                         @@\n");
     printf("@@           3 -> PESQUISAR CONSULTA                       @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           0 -> SAIR                                     @@\n");
+    printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
@@ -123,7 +141,7 @@ void menu_deletar (void) {
     printf("@@                                                         @@\n");
     printf("@@           3 -> DELETAR CONSULTA                         @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           0 -> SAIR                                     @@\n");
+    printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
