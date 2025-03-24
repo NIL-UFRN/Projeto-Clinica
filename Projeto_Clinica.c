@@ -87,6 +87,28 @@ void cadastrar_medico (void) {
     getchar();
 }
 
+void cadastrar_paciente (void) {
+    system("cls || clear");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@                  CADASTRAR PACIENTE                     @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@           NOME:                                         @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@           IDADE:                                        @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@           CPF:                                          @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@           SEXO:                                         @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("Precione a tecla ENTER para continuar...");
+    getchar();
+
+}
+
 void menu_atualizacao (void) {
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
