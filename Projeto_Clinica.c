@@ -1,15 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h> //biblioteca para colorir o terminal
 
-void menu_prim(void);
+void menu_prim (void);
+void menu_cadastro (void);
 
 
 int main (void){
     menu_prim();
+    menu_cadastro();
 
     return 0;
 }
-void menu_prim(void) {    
+
+
+void menu_prim (void) {    
     system("color 0a");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -32,7 +36,9 @@ void menu_prim(void) {
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
+}
 
+void menu_cadastro (void) {    
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -51,6 +57,7 @@ void menu_prim(void) {
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
+
 
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -113,6 +120,5 @@ void menu_prim(void) {
     
     
     
-    return 0;
 
 }
