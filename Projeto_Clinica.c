@@ -102,7 +102,9 @@ void menu_pesquisa (void) {
     printf("Precione a tecla ENTER para continuar...");
     getchar();    
 
+}
 
+void menu_deletar (void) {
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
