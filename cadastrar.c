@@ -1,6 +1,6 @@
 # include <stdio.h>
 # include <stdlib.h> 
-
+# include "cadastrar.h"
 
 void modulo_cadastro (void) {
     char op;
@@ -27,7 +27,8 @@ void modulo_cadastro (void) {
 
 
 }
-void menu_cadastro (void) {    
+char menu_cadastro (void) { 
+    char op;   
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -44,8 +45,10 @@ void menu_cadastro (void) {
     printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    scanf("%c", &op);
     printf("Precione a tecla ENTER para continuar...");
     getchar();
+    return op;
 } 
 
 void cadastrar_medico (void) {
