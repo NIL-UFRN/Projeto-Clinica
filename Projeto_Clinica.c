@@ -148,7 +148,7 @@ void menu_atualizacao (void) {
     printf("@@                                                         @@\n");
     printf("@@           2 -> ATUALIZAR PACIENTE                       @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           3 -> ATUALIZAR CONSULTA                       @@\n");
+    printf("@@           3 -> ATUALIZAR AGENDA                         @@\n");
     printf("@@                                                         @@\n");
     printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
@@ -169,7 +169,7 @@ void menu_pesquisa (void) {
     printf("@@                                                         @@\n");
     printf("@@           2 -> PESQUISAR PACIENTE                       @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           3 -> PESQUISAR CONSULTA                       @@\n");
+    printf("@@           3 -> PESQUISAR AGENDA                         @@\n");
     printf("@@                                                         @@\n");
     printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
@@ -191,7 +191,7 @@ void menu_deletar (void) {
     printf("@@                                                         @@\n");
     printf("@@           2 -> DELETAR PACIENTE                         @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           3 -> DELETAR CONSULTA                         @@\n");
+    printf("@@           3 -> CANCELAR AGENDAMENTO                     @@\n");
     printf("@@                                                         @@\n");
     printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
