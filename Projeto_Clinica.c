@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h> //biblioteca para colorir o terminal
 
-void menu_prim (void);
+//prototipos das funcoes
+char menu_prim (void);
 void menu_cadastro (void);
 void cadastrar_medico (void);
 void cadastrar_paciente (void);
@@ -13,20 +14,47 @@ void informacoes (void);
 
 
 int main (void){
-    menu_prim();
-    menu_cadastro();
-    cadastrar_medico();
-    cadastrar_paciente();
-    agendar_consulta();
-    menu_atualizacao ();
-    menu_pesquisa();
-    menu_deletar();
-    informacoes();
+    char op ;
+    op = menu_prim();
+    switch (op)
+    {
+    case '1':
+        menu_cadastro();
+
+        break;
+    case '2':
+        menu_atualizacao();
+        break;
+    
+    case '3':
+        menu_pesquisa();
+        break;    
+
+    case '4':
+        menu_deletar();
+        break;
+
+    case '5':
+        informacoes();
+        break;
+
+    case '0':
+        system("cls || clear");
+        printf("Saindo do programa...\n");
+        break;
+
+    default:
+        printf("Opcao invalida\n");
+        
+        break;
+    }
+    
     return 0;
 }
 
 
-void menu_prim (void) {    
+char menu_prim (void) {
+    char op;    
     system("color 0a");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -47,8 +75,10 @@ void menu_prim (void) {
     printf("@@           0 -> SAIR                                     @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
+    printf("escoha uma opcao: ");
+    scanf("%c", &op);
     getchar();
+    return op;
 }
 
 void menu_cadastro (void) {    
@@ -120,6 +150,7 @@ void agendar_consulta (void) {
     printf("@@                  AGENDAR CONSULTA                       @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
     printf("@@   DATA:                                                 @@\n");
     printf("@@   PACIENTE:                                             @@\n");
     printf("@@   CPF:                                IDADE:            @@\n");
