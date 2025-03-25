@@ -61,7 +61,7 @@ void menu_cadastro (void) {
     printf("@@                                                         @@\n");
     printf("@@           2 -> CADASTRAR PACIENTE                       @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           3 -> CADASTRAR CONSULTA                       @@\n");
+    printf("@@           3 -> AGENDAR CONSULTA                         @@\n");
     printf("@@                                                         @@\n");
     printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
@@ -110,6 +110,29 @@ void cadastrar_paciente (void) {
     getchar();
 
 }
+
+void agendar_consulta (void) {
+    system("cls || clear");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@                  AGENDAR CONSULTA                       @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@   DATA:                                                 @@\n");
+    printf("@@   PACIENTE:                                             @@\n");
+    printf("@@   CPF:                                IDADE:            @@\n");
+    printf("@@   SEXO:                     CONTATO:                    @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@   MEDICO:                                               @@\n");
+    printf("@@   ESPECIALIZACAO:                                       @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("Precione a tecla ENTER para continuar...");
+    getchar();
+
+}
+    
 
 void menu_atualizacao (void) {
     system("cls || clear");
