@@ -5,6 +5,7 @@ void menu_prim (void);
 void menu_cadastro (void);
 void cadastrar_medico (void);
 void cadastrar_paciente (void);
+void agendar_consulta (void);
 void menu_atualizacao (void);
 void menu_pesquisa (void);
 void menu_deletar (void);
@@ -16,6 +17,7 @@ int main (void){
     menu_cadastro();
     cadastrar_medico();
     cadastrar_paciente();
+    agendar_consulta();
     menu_atualizacao ();
     menu_pesquisa();
     menu_deletar();
