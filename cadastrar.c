@@ -4,26 +4,30 @@
 
 void modulo_cadastro (void) {
     char op;
-    op = menu_cadastro();
-    switch (op)
-    {
-    case '1':
-        cadastrar_medico();
+    do{
+        op = menu_cadastro();
+        switch (op)
+        {
+        case '1':
+            cadastrar_medico();
         break;
-    case '2':
-        cadastrar_paciente();
+        case '2':
+            cadastrar_paciente();
         break;
-    case '3':
-        agendar_consulta();
+        case '3':
+            agendar_consulta();
         break;
-    case '0':
-        system("cls || clear");
-        printf("Voltando ao menu principal...\n");
+        case '0':
+            system("cls || clear");
+            printf("Voltando ao menu principal...\n");
         break;
-    default:
-        printf("Opcao invalida\n");
+        default:
+            printf("Opcao invalida\n");
         break;
-    }
+        }
+    } while (op != '0');
+
+
 
 
 }
