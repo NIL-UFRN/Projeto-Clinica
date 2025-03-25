@@ -16,7 +16,7 @@ int main (void) {
     switch (op)
     {
     case '1':
-        menu_cadastro();
+        modulo_cadastro();
 
         break;
     case '2':
