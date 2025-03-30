@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h> //biblioteca para colorir o terminal
 #include "cadastrar.h"
+#include "atualizar.h"
 
 //prototipos das funcoes
 char menu_prim (void);
