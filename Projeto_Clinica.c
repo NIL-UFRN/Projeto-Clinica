@@ -3,10 +3,10 @@
 #include "cadastrar.h"
 #include "atualizar.h"
 #include "pesquisar.h"
+#include "deletar.h"
 
 //prototipos das funcoes
 char menu_prim (void);
-void menu_deletar (void);
 void informacoes (void);
 
 
@@ -32,7 +32,7 @@ int main (void) {
                 break;    
 
                 case '4':
-                    menu_deletar();
+                    modulo_deletar();
                 break;
 
                 case '5':
@@ -83,29 +83,6 @@ char menu_prim (void) {
     return op;
 }
     
-
-
-void menu_deletar (void) {
-    system("cls || clear");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                    TELA DE EXCLUSAO                     @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           1 -> DELETAR MEDICO                           @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           2 -> DELETAR PACIENTE                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           3 -> CANCELAR AGENDAMENTO                     @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           0 -> VOLTAR                                   @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
-    getchar();  
-    
-}
 
 void informacoes (void) {
     system("cls || clear");
