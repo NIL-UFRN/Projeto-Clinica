@@ -1,50 +1,50 @@
 # include <stdio.h>
-# include <stdlib.h> 
-# include "cadastrar.h"
+# include <stdlib.h>
+# include "atualizar.h"
 
-void modulo_cadastro (void) {
+
+void modulo_atualizar (void){
     char op;
     do{
-        op = menu_cadastro();
+        op=menu_atualizar();
         switch (op)
-        {
-        case '1':
-            cadastrar_medico();
-        break;
+        {case '1':
+            atualizar_medico();
+            break;
         case '2':
-            cadastrar_paciente();
-        break;
+            atualizar_paciente();
+            break;
         case '3':
-            agendar_consulta();
-        break;
+            atualizar_agenda();
+            break;
         case '0':
             system("cls || clear");
             printf("Voltando ao menu principal...\n");
-        break;
+            break;
         default:
             printf("Opcao invalida\n");
-        break;
+            break;
         }
     } while (op != '0');
 
 
 
-
 }
-char menu_cadastro (void) { 
-    char op;   
+
+char menu_atualizar(void) {
+    char op;
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
-    printf("@@                    TELA DE CADASTRO                     @@\n");
+    printf("@@                    TELA DE ATUALIZACAO                  @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
-    printf("@@           1 -> CADASTRAR MEDICO                         @@\n");
+    printf("@@           1 -> ATUALIZAR MEDICO                         @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           2 -> CADASTRAR PACIENTE                       @@\n");
+    printf("@@           2 -> ATUALIZAR PACIENTE                       @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           3 -> AGENDAR CONSULTA                         @@\n");
+    printf("@@           3 -> ATUALIZAR AGENDA                         @@\n");
     printf("@@                                                         @@\n");
     printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
@@ -52,14 +52,14 @@ char menu_cadastro (void) {
     scanf("%c", &op);
     printf("Escolha a opcao desejada: ");
     getchar();
-    return op;
-} 
+    return op;  
+}
 
-void cadastrar_medico (void) {
+void atualizar_medico (void) {
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
-    printf("@@                  CADASTRAR MEDICO                       @@\n");
+    printf("@@                  ATUALIZAR MEDICO                       @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -74,11 +74,12 @@ void cadastrar_medico (void) {
     getchar();
 }
 
-void cadastrar_paciente (void) {
+
+void atualizar_paciente (void){
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
-    printf("@@                  CADASTRAR PACIENTE                     @@\n");
+    printf("@@                  ATUALIZAR PACIENTE                     @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -93,14 +94,13 @@ void cadastrar_paciente (void) {
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
-
 }
 
-void agendar_consulta (void) {
+void atualizar_agenda (void) { 
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
-    printf("@@                  AGENDAR CONSULTA                       @@\n");
+    printf("@@                  ATUALIZAR AGENDA                       @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -116,5 +116,4 @@ void agendar_consulta (void) {
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
-
 }

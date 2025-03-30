@@ -4,7 +4,6 @@
 
 //prototipos das funcoes
 char menu_prim (void);
-void menu_atualizacao (void);
 void menu_pesquisa (void);
 void menu_deletar (void);
 void informacoes (void);
@@ -24,10 +23,10 @@ int main (void) {
                 break;
 
                 case '2':
-                    menu_atualizacao();
+                    modulo_atualizar();
                 break;
     
-                 case '3':
+                case '3':
                     menu_pesquisa();
                 break;    
 
@@ -50,7 +49,7 @@ int main (void) {
                 break;
             }
         } while (op != '0');
-        
+
     return 0;
 }
 
@@ -84,26 +83,6 @@ char menu_prim (void) {
 }
     
 
-void menu_atualizacao (void) {
-    system("cls || clear");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                    TELA DE ATUALIZACAO                  @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           1 -> ATUALIZAR MEDICO                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           2 -> ATUALIZAR PACIENTE                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           3 -> ATUALIZAR AGENDA                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           0 -> VOLTAR                                   @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
-    getchar();    
-}
 
 void menu_pesquisa (void) {
     system("cls || clear");
