@@ -2,10 +2,10 @@
 #include <stdlib.h> //biblioteca para colorir o terminal
 #include "cadastrar.h"
 #include "atualizar.h"
+#include "pesquisar.h"
 
 //prototipos das funcoes
 char menu_prim (void);
-void menu_pesquisa (void);
 void menu_deletar (void);
 void informacoes (void);
 
@@ -28,7 +28,7 @@ int main (void) {
                 break;
     
                 case '3':
-                    menu_pesquisa();
+                    modulo_pesquisar();
                 break;    
 
                 case '4':
@@ -84,28 +84,6 @@ char menu_prim (void) {
 }
     
 
-
-void menu_pesquisa (void) {
-    system("cls || clear");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                    TELA DE PESQUISA                     @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           1 -> PESQUISAR MEDICO                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           2 -> PESQUISAR PACIENTE                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           3 -> PESQUISAR AGENDA                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           0 -> VOLTAR                                   @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
-    getchar();    
-
-}
 
 void menu_deletar (void) {
     system("cls || clear");
