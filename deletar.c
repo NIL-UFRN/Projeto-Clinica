@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h> //biblioteca para colorir o terminal
 #include "deletar.h"
+#include "utio.h" //biblioteca para funcoes
 
 void modulo_deletar (void){
     char op;
@@ -21,6 +22,8 @@ void modulo_deletar (void){
 
             case '0':
                 printf("Voltando ao menu principal...\n");
+                delay(1);
+                system("cls || clear");
                 break;
 
             default:

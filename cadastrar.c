@@ -1,6 +1,7 @@
 # include <stdio.h>
 # include <stdlib.h> 
 # include "cadastrar.h"
+# include "utio.h" //biblioteca para funcoes
 
 void modulo_cadastro (void) {
     char op;
@@ -20,6 +21,8 @@ void modulo_cadastro (void) {
         case '0':
             system("cls || clear");
             printf("Voltando ao menu principal...\n");
+            delay(1);
+            system("cls || clear");
             break;
         default:
             printf("Opcao invalida\n");

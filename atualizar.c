@@ -1,5 +1,6 @@
 # include <stdio.h>
 # include <stdlib.h>
+# include "utio.h"
 # include "atualizar.h"
 
 
@@ -20,6 +21,8 @@ void modulo_atualizar (void){
         case '0':
             system("cls || clear");
             printf("Voltando ao menu principal...\n");
+            delay(1);
+            system("cls || clear");
             break;
         default:
             printf("Opcao invalida\n");
