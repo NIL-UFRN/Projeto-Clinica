@@ -10,20 +10,20 @@ void modulo_cadastro (void) {
         {
         case '1':
             cadastrar_medico();
-        break;
+            break;
         case '2':
             cadastrar_paciente();
-        break;
+            break;
         case '3':
             agendar_consulta();
-        break;
+            break;
         case '0':
             system("cls || clear");
             printf("Voltando ao menu principal...\n");
-        break;
+            break;
         default:
             printf("Opcao invalida\n");
-        break;
+            break;
         }
     } while (op != '0');
 }

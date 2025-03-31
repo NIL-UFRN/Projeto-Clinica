@@ -9,23 +9,23 @@ void modulo_deletar (void){
         switch (op) {
             case '1':
                 deletar_medico();
-            break;
+                break;
 
             case '2':
                 deletar_paciente();
-            break;
+                break;
 
             case '3':
                 deletar_consulta();
-            break;
+                break;
 
             case '0':
                 printf("Voltando ao menu principal...\n");
-            break;
+                break;
 
             default:
                 printf("Opcao invalida\n");
-            break;
+                break;
         }
     }
     while (op != '0');
