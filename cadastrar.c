@@ -55,6 +55,7 @@ char menu_cadastro (void) {
 } 
 
 void cadastrar_medico (void) {
+    char nome[50], CPF[15], especializacao[20];
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -69,7 +70,27 @@ void cadastrar_medico (void) {
     printf("@@           ESPECIALIZACAO:                               @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("Digite o nome do medico: ");
+    fgets(nome, 50, stdin);
+    printf("Digite o CPF do medico: ");
+    fgets(CPF, 15, stdin);
+    printf("Digite a especializacao do medico: ");
+    fgets(especializacao, 20, stdin);
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@                  CADASTRAR MEDICO                       @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@           NOME:%s                                       @@\n",nome);
+    printf("@@                                                         @@\n");
+    printf("@@           CPF:%s                                        @@\n",CPF);
+    printf("@@                                                         @@\n");
+    printf("@@           ESPECIALIZACAO:%s                             @@\n",especializacao);
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
+
     getchar();
 }
 
