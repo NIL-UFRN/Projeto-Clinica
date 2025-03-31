@@ -25,7 +25,6 @@ void modulo_pesquisar (void){
             break;
         }
     } while (op != '0');
-
 }
 
 char menu_pesquisar (void) {

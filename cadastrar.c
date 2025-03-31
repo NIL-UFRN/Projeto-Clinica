@@ -26,10 +26,6 @@ void modulo_cadastro (void) {
         break;
         }
     } while (op != '0');
-
-
-
-
 }
 char menu_cadastro (void) { 
     char op;   

@@ -29,7 +29,6 @@ void modulo_deletar (void){
         }
     }
     while (op != '0');
-
 }
 
 

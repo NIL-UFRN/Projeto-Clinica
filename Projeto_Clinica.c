@@ -12,48 +12,39 @@ void informacoes (void);
 
 int main (void) {
     char op ;
-
-        do{
+    do{
    
-            op = menu_prim();
-            switch (op) {
+        op = menu_prim();
+        switch (op) {
     
-                case '1':
-                    modulo_cadastro();
+        case '1':
+           modulo_cadastro();
+           break;
+        case '2':
+            modulo_atualizar();
+            break;
+        case '3':
+            modulo_pesquisar();
+            break;    
+        case '4':
+            modulo_deletar();
+            break;
 
-                break;
+        case '5':
+            informacoes();
+            break;
 
-                case '2':
-                    modulo_atualizar();
-                break;
-    
-                case '3':
-                    modulo_pesquisar();
-                break;    
-
-                case '4':
-                    modulo_deletar();
-                break;
-
-                case '5':
-                    informacoes();
-                break;
-
-                case '0':
-                    system("cls || clear");
-                    printf("Saindo do programa...\n");
-                break;
-
-                default:
-                    printf("Opcao invalida\n");
-        
-                break;
-            }
-        } while (op != '0');
-
-    return 0;
+        case '0':
+            system("cls || clear");
+            printf("Saindo do programa...\n");
+            break;
+        default:
+            printf("Opcao invalida\n");
+            break;
+        }
+    } while (op != '0');
+return 0;
 }
-
 
 char menu_prim (void) {
     char op;    
