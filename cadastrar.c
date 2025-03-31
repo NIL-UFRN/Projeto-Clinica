@@ -81,13 +81,13 @@ void cadastrar_medico (void) {
     printf("@@                  CADASTRAR MEDICO                       @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           NOME:%s                                       @@\n",nome);
-    printf("@@                                                         @@\n");
-    printf("@@           CPF:%s                                        @@\n",CPF);
-    printf("@@                                                         @@\n");
-    printf("@@           ESPECIALIZACAO:%s                             @@\n",especializacao);
-    printf("@@                                                         @@\n");
+    printf("                                                         \n");
+    printf("           NOME:%s\n",nome);
+    printf("                                                        \n");
+    printf("           CPF:%s\n",CPF);
+    printf("                                                        \n");
+    printf("           ESPECIALIZACAO:%s\n",especializacao);
+    printf("                                                        \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
 
