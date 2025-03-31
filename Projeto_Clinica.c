@@ -4,6 +4,7 @@
 #include "atualizar.h"
 #include "pesquisar.h"
 #include "deletar.h"
+#include "utio.h" //biblioteca para funcoes
 
 //prototipos das funcoes
 char menu_prim (void);
@@ -37,7 +38,13 @@ int main (void) {
         case '0':
             system("cls || clear");
             printf("Saindo do programa...\n");
+            delay(1);
+            printf("Obrigado por usar o sistema de agendamento!\n");
+            delay(1);
+            system("cls || clear");
+
             break;
+    
         default:
             printf("Opcao invalida\n");
             break;
