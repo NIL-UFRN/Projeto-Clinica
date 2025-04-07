@@ -76,6 +76,8 @@ void cadastrar_medico (void) {
     fgets(CPF, 15, stdin);
     printf("Digite a especializacao do medico: ");
     fgets(especializacao, 20, stdin);
+    getchar(); // Limpa o buffer do teclado
+
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  CADASTRAR MEDICO                       @@\n");
@@ -124,6 +126,7 @@ void cadastrar_paciente (void) {
     fgets(sexo, 3, stdin);
     printf("Digite o contato do paciente: ");
     fgets(contato, 15, stdin);
+    getchar(); // Limpa o buffer do teclado
 
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -180,6 +183,7 @@ void agendar_consulta (void) {
     scanf("%s", medico);
     printf("Digite a especializacao do medico: ");
     scanf("%s", especializacao);
+    getchar(); // Limpa o buffer do teclado
 
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -187,21 +191,17 @@ void agendar_consulta (void) {
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("                                                         \n");
-    printf("           DATA:%s\n",data);
-    printf("                                                        \n");
-    printf("           PACIENTE:%s\n",paciente);
-    printf("                                                        \n");
-    printf("           CPF:%s\n",CPF);
-    printf("                                                        \n");
-    printf("           SEXO:%s\n",sexo);
-    printf("                                                        \n");
-    printf("           CONTATO:%s\n",contato);
-    printf("                                                        \n");
-    printf("           MEDICO:%s\n",medico);
-    printf("                                                        \n");
-    printf("           ESPECIALIZACAO:%s\n",especializacao);
-    printf("                                                        \n");
+    printf("   DATA:%s       \n",data);
+    printf("   PACIENTE:%s    \n",paciente);
+    printf("   CPF:%s  IDADE:%s     \n",CPF, data);
+    printf("   SEXO:%s      CONTATO:%s     \n",sexo, contato);
+    printf("                                                         \n");
+    printf("                                                         \n");
+    printf("   MEDICO:%s     \n",medico);
+    printf("  ESPECIALIZACAO:%s  \n",especializacao);
+    printf("                                                         \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+
     printf("Precione a tecla ENTER para continuar...");
     getchar();
 
