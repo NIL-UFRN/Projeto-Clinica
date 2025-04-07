@@ -27,8 +27,8 @@ void modulo_deletar (void){
                 break;
 
             default:
-                printf("Opcao invalida\n");
-                getchar();
+                printf("Opcao invalida, digite uma opcao valida\n");
+                delay(1);
                 break;
         }
     }
@@ -54,8 +54,8 @@ char menu_deletar (void) {
     printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    scanf("%c", &op);
     printf("Escolha a opcao desejada: ");
+    scanf("%c", &op);
     getchar();  
     return op;
 }

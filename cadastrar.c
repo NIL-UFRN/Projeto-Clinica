@@ -25,8 +25,8 @@ void modulo_cadastro (void) {
             system("cls || clear");
             break;
         default:
-            printf("Opcao invalida\n");
-            getchar(); // Limpa o buffer do teclado
+            printf("Opcao invalida, digite uma opcao valida.\n");
+            delay(1);
             break;
         }
     } while (op != '0');
@@ -49,9 +49,10 @@ char menu_cadastro (void) {
     printf("@@           0 -> VOLTAR                                   @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    scanf("%c", &op);
     printf("Escolha a opcao desejada: ");
+    scanf("%c", &op);
     getchar();
+    fflush(stdin); // Limpa o buffer do teclado
     return op;
 } 
 

@@ -46,8 +46,8 @@ int main (void) {
             break;
     
         default:
-            printf("Opcao invalida\n");
-            getchar();
+            printf("Opcao invalida, digite uma opcao valida.\n");
+            delay(1);
             break;
         }
     } while (op != '0');
@@ -79,6 +79,7 @@ char menu_prim (void) {
     printf("escoha uma opcao: ");
     scanf("%c", &op);
     getchar();
+    fflush(stdin);
     return op;
 }
     

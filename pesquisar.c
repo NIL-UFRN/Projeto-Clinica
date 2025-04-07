@@ -24,8 +24,8 @@ void modulo_pesquisar (void){
             system("cls || clear");
             break;
         default:
-            printf("Opcao invalida\n");
-            getchar();
+            printf("Opcao invalida, digite uma opcao valida\n");
+            delay(1);
             break;
         }
     } while (op != '0');
