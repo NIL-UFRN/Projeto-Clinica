@@ -26,6 +26,7 @@ void modulo_cadastro (void) {
             break;
         default:
             printf("Opcao invalida\n");
+            getchar(); // Limpa o buffer do teclado
             break;
         }
     } while (op != '0');
@@ -76,6 +77,7 @@ void cadastrar_medico (void) {
     fgets(CPF, 15, stdin);
     printf("Digite a especializacao do medico: ");
     fgets(especializacao, 20, stdin);
+
     getchar(); // Limpa o buffer do teclado
 
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -98,7 +100,7 @@ void cadastrar_medico (void) {
 
 void cadastrar_paciente (void) {
     system("cls || clear");
-    char nome[50], CPF[15], sexo[3], data_nascimento[10], contato[15];
+    char nome[50], CPF[15], sexo[3], data_nascimento[12], contato[15];
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  CADASTRAR PACIENTE                     @@\n");
@@ -119,7 +121,7 @@ void cadastrar_paciente (void) {
     printf("Digite o nome do paciente: ");
     fgets(nome, 50, stdin);
     printf("Digite a data de nascimento: ");
-    fgets(data_nascimento, 10, stdin);
+    fgets(data_nascimento, 12, stdin);
     printf("Digite o CPF do paciente: ");
     fgets(CPF, 15, stdin);
     printf("Digite o sexo do paciente M ou F: ");

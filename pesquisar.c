@@ -25,6 +25,7 @@ void modulo_pesquisar (void){
             break;
         default:
             printf("Opcao invalida\n");
+            getchar();
             break;
         }
     } while (op != '0');

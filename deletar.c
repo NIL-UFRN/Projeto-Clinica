@@ -28,6 +28,7 @@ void modulo_deletar (void){
 
             default:
                 printf("Opcao invalida\n");
+                getchar();
                 break;
         }
     }

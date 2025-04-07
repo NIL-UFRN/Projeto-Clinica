@@ -47,6 +47,7 @@ int main (void) {
     
         default:
             printf("Opcao invalida\n");
+            getchar();
             break;
         }
     } while (op != '0');
