@@ -96,6 +96,7 @@ void cadastrar_medico (void) {
 
 void cadastrar_paciente (void) {
     system("cls || clear");
+    char nome[50], CPF[15], sexo[3], data_nascimento[10];
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  CADASTRAR PACIENTE                     @@\n");
@@ -104,12 +105,35 @@ void cadastrar_paciente (void) {
     printf("@@                                                         @@\n");
     printf("@@           NOME:                                         @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           IDADE:                                        @@\n");
+    printf("@@          DATA DE NASCIMENTO:                IDADE:      @@\n");
     printf("@@                                                         @@\n");
     printf("@@           CPF:                                          @@\n");
     printf("@@                                                         @@\n");
     printf("@@           SEXO:                                         @@\n");
     printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("Digite o nome do paciente: ");
+    fgets(nome, 50, stdin);
+    printf("Digite a data de nascimento: ");
+    fgets(data_nascimento, 10, stdin);
+    printf("Digite o CPF do paciente: ");
+    fgets(CPF, 15, stdin);
+    printf("Digite o sexo do paciente M ou F: ");
+    fgets(sexo, 3, stdin);
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@                  CADASTRAR PACIENTE                     @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("                                                         \n");
+    printf("           NOME:%s\n",nome);
+    printf("                                                        \n");
+    printf("           DATA DE NASCIMENTO:%s\n",data_nascimento);
+    printf("                                                        \n");
+    printf("           CPF:%s\n",CPF);
+    printf("                                                        \n");
+    printf("           SEXO:%s\n",sexo);
+    printf("                                                        \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
