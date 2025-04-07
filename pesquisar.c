@@ -56,6 +56,7 @@ char menu_pesquisar (void) {
 }
 
 void pesquisar_medico (void){
+    char nome[50], CPF[15], especializacao[20];
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -70,9 +71,28 @@ void pesquisar_medico (void){
     printf("@@           ESPECIALIZACAO:                               @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("Digite o CPF do medico: ");
+    fgets(CPF, 15, stdin);
+
+    getchar();
+
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@                     FICHA  MEDICO                       @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("                                                         \n");
+    printf("           NOME:%s\n",nome);
+    printf("                                                        \n");
+    printf("           CPF:%s\n",CPF);
+    printf("                                                        \n");
+    printf("           ESPECIALIZACAO:%s\n",especializacao);
+    printf("                                                        \n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
 }
+
 void pesquisar_paciente (void){
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
