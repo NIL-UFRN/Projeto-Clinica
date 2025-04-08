@@ -38,6 +38,7 @@ void modulo_deletar (void){
 
 char menu_deletar (void) {
     char op;
+    system("color 0a");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -63,6 +64,7 @@ char menu_deletar (void) {
 
 void deletar_medico (void){
 
+    system("color 0c");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -83,6 +85,7 @@ void deletar_medico (void){
 
 void deletar_paciente (void){
 
+    system("color 0c");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -106,6 +109,7 @@ void deletar_paciente (void){
 
 void deletar_consulta (void){
 
+    system("color 0c");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");

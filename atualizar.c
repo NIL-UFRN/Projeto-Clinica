@@ -36,6 +36,7 @@ void modulo_atualizar (void){
 
 char menu_atualizar(void) {
     char op;
+    system("color 0a");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -59,6 +60,7 @@ char menu_atualizar(void) {
 }
 
 void atualizar_medico (void) {
+    system ("color 09");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -79,6 +81,7 @@ void atualizar_medico (void) {
 
 
 void atualizar_paciente (void){
+    system ("color 09");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -99,7 +102,8 @@ void atualizar_paciente (void){
     getchar();
 }
 
-void atualizar_agenda (void) { 
+void atualizar_agenda (void) {
+    system ("color 09"); 
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
