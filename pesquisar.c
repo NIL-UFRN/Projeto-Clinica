@@ -33,6 +33,7 @@ void modulo_pesquisar (void){
 
 char menu_pesquisar (void) {
     char op;
+    system ("color 0a");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -57,7 +58,11 @@ char menu_pesquisar (void) {
 }
 
 void pesquisar_medico (void){
-    char nome[50], CPF[15], especializacao[20];
+    char nome[50] = "";
+    char CPF[15] = "";
+    char especializacao[20] = ""; 
+    
+    system ("color 0e");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -95,6 +100,11 @@ void pesquisar_medico (void){
 }
 
 void pesquisar_paciente (void){
+    char nome[50] = "";
+    char CPF[15] = "";
+    char sexo[10] = "";
+    char idade[3] = "";
+    system ("color 0e");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -111,11 +121,39 @@ void pesquisar_paciente (void){
     printf("@@           SEXO:                                         @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("Coloque o CPF do paciente: ");
+    fgets(CPF, 15, stdin);
+    getchar();
+
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@                  PESQUISAR PACIENTE                     @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("                                                         \n");
+    printf("           NOME:%s    \n",nome);
+    printf("                                                         \n");
+    printf("           IDADE:%s   \n",idade);
+    printf("                                                         \n");
+    printf("           CPF:%s    \n",CPF);
+    printf("                                                         \n");
+    printf("           SEXO:%s    \n",sexo);
+    printf("                                                         \n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
 
 }
 void pesquisar_agenda (void){
+    char data[11] = "";
+    char paciente[50] = "";
+    char CPF[15] = "";
+    char idade[3] = "";
+    char sexo[10] = "";
+    char contato[15] = "";
+    char medico[50] = "";
+    char especializacao[20] = "";
+    system ("color 0e");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -133,7 +171,26 @@ void pesquisar_agenda (void){
     printf("@@   ESPECIALIZACAO:                                       @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
+    printf("digite a data: ");
+    fgets(data, 11, stdin);
     getchar();
 
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("@@                                                         @@\n");
+    printf("@@                  PESQUISAR AGENDA                       @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("                                                         \n");
+    printf("   DATA:%s \n",data);
+    printf("   PACIENTE:%s \n",paciente);
+    printf("   CPF:%s    IDADE:%s  \n",CPF,idade);
+    printf("   SEXO:%s    CONTATO:%s \n",sexo,contato);
+    printf("                                                         \n");
+    printf("                                                        \n");
+    printf("   MEDICO:%s \n",medico);
+    printf("   ESPECIALIZACAO:%s \n",especializacao);
+    printf("                                                         \n");
+    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("Precione a tecla ENTER para continuar...");
+    getchar();
 }
