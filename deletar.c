@@ -57,6 +57,7 @@ char menu_deletar (void) {
     printf("Escolha a opcao desejada: ");
     scanf("%c", &op);
     getchar();  
+    fflush(stdin);
     return op;
 }
 
