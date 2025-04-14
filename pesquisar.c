@@ -155,23 +155,8 @@ void pesquisar_agenda (void){
     char especializacao[20] = "";
     system ("color 0e");
     system("cls || clear");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  PESQUISAR AGENDA                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@   DATA:                                                 @@\n");
-    printf("@@   PACIENTE:                                             @@\n");
-    printf("@@   CPF:                                IDADE:            @@\n");
-    printf("@@   SEXO:                     CONTATO:                    @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@   MEDICO:                                               @@\n");
-    printf("@@   ESPECIALIZACAO:                                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("digite a data: ");
+
+    printf("digite a data que deseja pesquisar: ");
     fgets(data, 11, stdin);
     getchar();
 
