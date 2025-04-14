@@ -124,7 +124,7 @@ void cadastrar_paciente (void) {
     printf("Digite a data de nascimento: ");
     fgets(data_nascimento, 12, stdin);
     printf("Digite o CPF do paciente: ");
-    fgets(CPF, 15, stdin);
+    ler_CPF(CPF); // Chama a função para ler o CPF
     printf("Digite o sexo do paciente M ou F: ");
     fgets(sexo, 3, stdin);
     printf("Digite o contato do paciente: ");
