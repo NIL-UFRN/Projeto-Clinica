@@ -92,23 +92,30 @@ void deletar_medico (void){
 }
 
 void deletar_paciente (void){
-
+    char nome[50] = "";
+    char CPF[15] = "";
+    char idade[3] = "";
+    char sexo[10] = "";
     system("color 0c");
     system("cls || clear");
+    printf("Digite o CPF do paciente que deseja deletar: ");
+    fgets(CPF, 15, stdin);
+    getchar();
+    
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                    DELETAR PACIENTE                     @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           NOME:                                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           IDADE:                                        @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           CPF:                                          @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           SEXO:                                         @@\n");
-    printf("@@                                                         @@\n");
+    printf("                                                         \n");
+    printf("           NOME:%s    \n",nome);
+    printf("                                                         \n");
+    printf("           IDADE:%s   \n",idade);
+    printf("                                                         \n");
+    printf("           CPF:%s    \n",CPF);
+    printf("                                                         \n");
+    printf("           SEXO:%s    \n",sexo);
+    printf("                                                         \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
