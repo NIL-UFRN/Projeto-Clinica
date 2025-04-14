@@ -76,6 +76,7 @@ void cadastrar_medico (void) {
     fgets(nome, 50, stdin);
     printf("Digite o CPF do medico: ");
     ler_CPF(CPF); // Chama a função para ler o CPF
+    getchar(); // Limpa o buffer do teclado
     printf("Digite a especializacao do medico: ");
     fgets(especializacao, 20, stdin);
 
@@ -89,7 +90,8 @@ void cadastrar_medico (void) {
     printf("                                                         \n");
     printf("           NOME:%s\n",nome);
     printf("                                                        \n");
-    printf("           CPF:%s\n",CPF);
+    printf("           CPF: ");
+    print_CPF(CPF);
     printf("                                                        \n");
     printf("           ESPECIALIZACAO:%s\n",especializacao);
     printf("                                                        \n");

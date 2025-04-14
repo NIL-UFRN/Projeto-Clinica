@@ -57,3 +57,10 @@ int validar_CPF (char CPF[15]) {
     }
     return (digito1 == cpf[9] && digito2 == cpf[10]);
 }
+
+void print_CPF (char CPF[15]) {
+    printf("%c%c%c.",CPF[0], CPF[1], CPF[2]);
+    printf("%c%c%c.", CPF[3], CPF[4], CPF[5]);
+    printf("%c%c%c-", CPF[6], CPF[7], CPF[8]);
+    printf("%c%c\n", CPF[9], CPF[10]);
+}
