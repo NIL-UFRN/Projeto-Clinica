@@ -127,6 +127,7 @@ void cadastrar_paciente (void) {
     fgets(data_nascimento, 12, stdin);
     printf("Digite o CPF do paciente: ");
     ler_CPF(CPF); // Chama a função para ler o CPF
+    getchar(); // Limpa o buffer do teclado
     printf("Digite o sexo do paciente M ou F: ");
     fgets(sexo, 3, stdin);
     printf("Digite o contato do paciente: ");
@@ -143,7 +144,9 @@ void cadastrar_paciente (void) {
     printf("                                                        \n");
     printf("           IDADE:%s\n",data_nascimento);
     printf("                                                        \n");
-    printf("           CPF:%s\n",CPF);
+    printf("           CPF:");
+    print_CPF(CPF);
+    printf("                                                        \n");
     printf("                                                        \n");
     printf("           CONTATO:%s\n",contato);
     printf("                                                        \n");
