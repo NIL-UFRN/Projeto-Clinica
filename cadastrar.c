@@ -57,49 +57,56 @@ char menu_cadastro (void) {
 } 
 
 void cadastrar_medico (void) {
-    char nome[50], CPF[15], especializacao[20];
-    system("cls || clear");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  CADASTRAR MEDICO                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           NOME:                                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           CPF:                                          @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           ESPECIALIZACAO:                               @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Digite o nome do medico: ");
-    fgets(nome, 50, stdin);
-    printf("Digite o CPF do medico: ");
-    ler_CPF(CPF); // Chama a função para ler o CPF
-    getchar(); // Limpa o buffer do teclado
-    printf("Digite a especializacao do medico: ");
-    fgets(especializacao, 20, stdin);
+    char nome[50], CPF[15], especializacao[20], resp;
+    do{
+            system("cls || clear");
+            printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            printf("@@                                                         @@\n");
+            printf("@@                  CADASTRAR MEDICO                       @@\n");
+            printf("@@                                                         @@\n");
+            printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            printf("@@                                                         @@\n");
+            printf("@@           NOME:                                         @@\n");
+            printf("@@                                                         @@\n");
+            printf("@@           CPF:                                          @@\n");
+            printf("@@                                                         @@\n");
+            printf("@@           ESPECIALIZACAO:                               @@\n");
+            printf("@@                                                         @@\n");
+            printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            printf("Digite o nome do medico: ");
+            fgets(nome, 50, stdin);
+            printf("Digite o CPF do medico: ");
+            ler_CPF(CPF); // Chama a função para ler o CPF
+            getchar(); // Limpa o buffer do teclado
+            printf("Digite a especializacao do medico: ");
+            fgets(especializacao, 20, stdin);
 
-    getchar(); // Limpa o buffer do teclado
+            getchar(); // Limpa o buffer do teclado
 
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  CADASTRAR MEDICO                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("                                                         \n");
-    printf("           NOME:%s\n",nome);
-    printf("                                                        \n");
-    printf("           CPF: ");
-    print_CPF(CPF);
-    printf("                                                        \n");
-    printf("           ESPECIALIZACAO:%s\n",especializacao);
-    printf("                                                        \n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
+            printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            printf("@@                                                         @@\n");
+            printf("@@                  CADASTRAR MEDICO                       @@\n");
+            printf("@@                                                         @@\n");
+            printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            printf("                                                         \n");
+            printf("           NOME:%s\n",nome);
+            printf("                                                        \n");
+            printf("           CPF: ");
+            print_CPF(CPF);
+            printf("                                                        \n");
+            printf("           ESPECIALIZACAO:%s\n",especializacao);
+            printf("                                                        \n");
+            printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            printf("Os dados estao corretos? (S/N): ");
+            scanf("%c", &resp);
+            getchar();
+    }while (resp != 'S' && resp != 's'); // Verifica se o usuário digitou 'S' ou 's'
+    printf("Cadastro realizado com sucesso!\n");      
+    delay(1);            
+                    
+ }   
 
-    getchar();
-}
+
 
 void cadastrar_paciente (void) {
     system("cls || clear");
