@@ -64,3 +64,19 @@ void print_CPF (char CPF[15]) {
     printf("%c%c%c-", CPF[6], CPF[7], CPF[8]);
     printf("%c%c\n", CPF[9], CPF[10]);
 }
+
+void validar_email (char email[50]) {
+    int i, arroba = 0, ponto = 0;
+    for (i = 0; email[i] != '\0'; i++) {
+        if (email[i] == '@') {
+            arroba = 1;
+        } else if (email[i] == '.') {
+            ponto = 1;
+        }
+    }
+    if (arroba && ponto) {
+        printf("Email valido!\n");
+    } else {
+        printf("Email invalido! Tente novamente.\n");
+    }
+}
