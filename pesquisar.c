@@ -64,22 +64,8 @@ void pesquisar_medico (void){
     
     system ("color 0e");
     system("cls || clear");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  PESQUISAR MEDICO                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           NOME:                                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           CPF:                                          @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           ESPECIALIZACAO:                               @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Digite o CPF do medico: ");
     fgets(CPF, 15, stdin);
-
     getchar();
 
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -106,21 +92,6 @@ void pesquisar_paciente (void){
     char idade[3] = "";
     system ("color 0e");
     system("cls || clear");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  PESQUISAR PACIENTE                     @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           NOME:                                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           IDADE:                                        @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           CPF:                                          @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           SEXO:                                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Coloque o CPF do paciente: ");
     fgets(CPF, 15, stdin);
     getchar();
@@ -145,6 +116,7 @@ void pesquisar_paciente (void){
 
 }
 void pesquisar_agenda (void){
+    char id[11] = "";
     char data[11] = "";
     char paciente[50] = "";
     char CPF[15] = "";
@@ -166,6 +138,7 @@ void pesquisar_agenda (void){
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("                                                         \n");
+    printf("   ID:%s \n",id);
     printf("   DATA:%s \n",data);
     printf("   PACIENTE:%s \n",paciente);
     printf("   CPF:%s    IDADE:%s  \n",CPF,idade);
