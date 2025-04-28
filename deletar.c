@@ -123,6 +123,7 @@ void deletar_paciente (void){
 }
 
 void deletar_consulta (void){
+    char id[11] = "";
     char data[11] = "";
     char paciente[50] = "";
     char CPF[15] = "";
@@ -143,6 +144,7 @@ void deletar_consulta (void){
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("                                                         \n");
+    printf("   ID:%s \n",id);
     printf("   DATA:%s \n",data);
     printf("   PACIENTE:%s \n",paciente);
     printf("   CPF:%s    IDADE:%s  \n",CPF,idade);
