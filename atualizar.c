@@ -60,20 +60,27 @@ char menu_atualizar(void) {
 }
 
 void atualizar_medico (void) {
+    char nome[50] = "";
+    char CPF[15] = "";
+    char especializacao[20] = "";
     system ("color 09");
     system("cls || clear");
+    printf("Digite o CPF do medico: ");
+    fgets(CPF, 15, stdin);
+    getchar();
+
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  ATUALIZAR MEDICO                       @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           NOME:                                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           CPF:                                          @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           ESPECIALIZACAO:                               @@\n");
-    printf("@@                                                         @@\n");
+    printf("                                                         \n");
+    printf("           NOME:%s\n",nome);
+    printf("                                                        \n");
+    printf("           CPF:%s\n",CPF);
+    printf("                                                        \n");
+    printf("           ESPECIALIZACAO:%s\n",especializacao);
+    printf("                                                        \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
@@ -81,45 +88,66 @@ void atualizar_medico (void) {
 
 
 void atualizar_paciente (void){
+    char nome[50] = "";
+    char CPF[15] = "";
+    char sexo[10] = "";
+    char idade[3] = "";
     system ("color 09");
     system("cls || clear");
+    printf("Digite o CPF do paciente: ");
+    fgets(CPF, 15, stdin);
+    getchar();
+
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  ATUALIZAR PACIENTE                     @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           NOME:                                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           IDADE:                                        @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           CPF:                                          @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@           SEXO:                                         @@\n");
-    printf("@@                                                         @@\n");
+    printf("                                                         \n");
+    printf("           NOME:%s    \n",nome);
+    printf("                                                         \n");
+    printf("           IDADE:%s   \n",idade);
+    printf("                                                         \n");
+    printf("           CPF:%s    \n",CPF);
+    printf("                                                         \n");
+    printf("           SEXO:%s    \n",sexo);
+    printf("                                                         \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
 }
 
 void atualizar_agenda (void) {
+    char id[11] = "";
+    char data[11] = "";
+    char paciente[50] = "";
+    char CPF[15] = "";
+    char idade[3] = "";
+    char sexo[10] = "";
+    char contato[15] = "";
+    char medico[50] = "";
+    char especializacao[20] = "";
     system ("color 09"); 
     system("cls || clear");
+    printf("digite o ID da consulta: ");
+    fgets(id, 11, stdin);
+    getchar();
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  ATUALIZAR AGENDA                       @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@   DATA:                                                 @@\n");
-    printf("@@   PACIENTE:                                             @@\n");
-    printf("@@   CPF:                                IDADE:            @@\n");
-    printf("@@   SEXO:                     CONTATO:                    @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@   MEDICO:                                               @@\n");
-    printf("@@   ESPECIALIZACAO:                                       @@\n");
-    printf("@@                                                         @@\n");
+    printf("                                                         \n");
+    printf("   ID:%s \n,",id);
+    printf("   DATA:%s \n",data);
+    printf("   PACIENTE:%s \n",paciente);
+    printf("   CPF:%s    IDADE:%s  \n",CPF,idade);
+    printf("   SEXO:%s    CONTATO:%s \n",sexo,contato);
+    printf("                                                         \n");
+    printf("                                                        \n");
+    printf("   MEDICO:%s \n",medico);
+    printf("   ESPECIALIZACAO:%s \n",especializacao);
+    printf("                                                         \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");
     getchar();
