@@ -80,3 +80,53 @@ void validar_email (char email[50]) {
         printf("Email invalido! Tente novamente.\n");
     }
 }
+
+
+void Ler_data(char data[12]) {
+    int dia, mes, ano;
+    int dataValida;
+     //printf("Programa Data de Nascimento\n\n");
+    do {
+        scanf("%d/%d/%d", &dia, &mes, &ano);
+        //printf("Data digitada: %02d/%02d/%04d\n", dia, mes, ano);
+        dataValida = testaData(dia, mes, ano);
+        if (!dataValida) {
+        printf("%02d/%02d/%d invalida\n",dia,mes,ano);
+        printf("Tente novamente\n\n");
+        }   
+        else {
+            printf("A data %02d/%02d/%d valida\n",dia,mes,ano);
+        }
+     } while (!dataValida);
+    sprintf(data, "%02d/%02d/%04d", dia, mes, ano); // Formata a data como string
+ 
+}
+
+int bissexto(int aa) {
+    if ((aa % 4 == 0) && (aa % 100 != 0)) {
+     return 1;
+     } else if (aa % 400 == 0) {
+     return 1;
+     } else {
+     return 0;
+     }
+}
+
+int testaData(int dd, int mm, int aa) {
+    int maiorDia;
+    if (aa < 0 || mm < 1 || mm > 12)
+     return 0;
+    if (mm == 2) {
+     if (bissexto(aa))
+     maiorDia = 29;
+     else
+     maiorDia = 28;
+     } else if (mm == 4 || mm == 6 ||
+     mm == 9 || mm == 11) {
+     maiorDia = 30;
+     } else
+     maiorDia = 31;
+    if (dd < 1 || dd > maiorDia)
+     return 0;
+    return 1;
+}
