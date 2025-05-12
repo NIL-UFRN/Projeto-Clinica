@@ -179,14 +179,14 @@ void cadastrar_paciente (void) {
 
 void agendar_consulta (void) {
     system("cls || clear");
-    char data[10], paciente[50], CPF[15], sexo[3], contato[15], medico[50], especializacao[20], email[50];
+    char data[10], hora[6], paciente[50], CPF[15], sexo[3], contato[15], medico[50], especializacao[20], email[50];
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  AGENDAR CONSULTA                       @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
-    printf("@@   DATA:                                                 @@\n");
+    printf("@@   DATA:             HORA:                               @@\n");
     printf("@@   PACIENTE:                                             @@\n");
     printf("@@   CPF:                                IDADE:            @@\n");
     printf("@@   SEXO:                     CONTATO:                    @@\n");
@@ -207,7 +207,7 @@ void agendar_consulta (void) {
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("                                                         \n");
-    printf("   DATA:%s       \n",data);
+    printf("   DATA:%s      HORA:%s \n",data,hora);
     printf("   PACIENTE:%s    \n",paciente);
     printf("   CPF:%s  IDADE:%s     \n",CPF, data);
     printf("   SEXO:%s      TELEFONE:%s     \n",sexo, contato);
