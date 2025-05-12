@@ -6,3 +6,5 @@ void validar_email (char [50]);
 void Ler_data(char [12]);
 int bissexto(int );
 int testaData(int, int, int);
+char ler_email(char*);
+void validar_email(char*);
