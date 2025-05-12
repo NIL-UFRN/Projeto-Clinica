@@ -2,6 +2,7 @@
 # include <stdlib.h>
 # include "utio.h"
 # include "atualizar.h"
+# include "estrutura.h"
 
 
 void modulo_atualizar (void){

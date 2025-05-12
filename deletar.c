@@ -2,6 +2,7 @@
 #include <stdlib.h> //biblioteca para colorir o terminal
 #include "deletar.h"
 #include "utio.h" //biblioteca para funcoes
+#include "estrutura.h" //biblioteca para estruturas
 
 void modulo_deletar (void){
     char op;
