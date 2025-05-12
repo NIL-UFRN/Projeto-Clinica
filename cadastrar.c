@@ -110,7 +110,7 @@ void cadastrar_medico (void) {
 
 void cadastrar_paciente (void) {
     system("cls || clear");
-    char nome[50], CPF[15], sexo[3], data_nascimento[12], contato[15];
+    char nome[50], CPF[15], sexo[3], data_nascimento[12], contato[15], email[50];
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  CADASTRAR PACIENTE                     @@\n");
@@ -123,9 +123,12 @@ void cadastrar_paciente (void) {
     printf("@@                                                         @@\n");
     printf("@@           CPF:                                          @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           CONTATO:                                      @@\n");
+    printf("@@           TELEFONE:                                     @@\n");
+    printf("@@                                                         @@\n");
+    printf("@@           EMAIL:                                        @@\n");
     printf("@@                                                         @@\n");
     printf("@@           SEXO:                                         @@\n");
+    printf("@@                                                         @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Digite o nome do paciente: ");
@@ -137,8 +140,10 @@ void cadastrar_paciente (void) {
     getchar(); // Limpa o buffer do teclado
     printf("Digite o sexo do paciente M ou F: ");
     fgets(sexo, 3, stdin);
-    printf("Digite o contato do paciente: ");
+    printf("Digite o telefone do paciente: ");
     fgets(contato, 15, stdin);
+    printf("Digite o email do paciente: ");
+    fgets(email, 50, stdin); // Chama a função para ler o email
     getchar(); // Limpa o buffer do teclado
 
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -157,6 +162,8 @@ void cadastrar_paciente (void) {
     printf("                                                        \n");
     printf("           CONTATO:%s\n",contato);
     printf("                                                        \n");
+    printf("           EMAIL:%s\n",email);
+    printf("                                                        \n");
     printf("           SEXO:%s\n",sexo);
     printf("                                                        \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -167,7 +174,7 @@ void cadastrar_paciente (void) {
 
 void agendar_consulta (void) {
     system("cls || clear");
-    char data[10], paciente[50], CPF[15], sexo[3], contato[15], medico[50], especializacao[20];
+    char data[10], paciente[50], CPF[15], sexo[3], contato[15], medico[50], especializacao[20], email[50];
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  AGENDAR CONSULTA                       @@\n");
@@ -186,18 +193,7 @@ void agendar_consulta (void) {
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Digite a data da consulta: ");
     scanf("%s", data);
-    printf("Digite o nome do paciente: ");
-    scanf("%s", paciente);
-    printf("Digite o CPF do paciente: ");
-    scanf("%s", CPF);
-    printf("Digite o sexo do paciente M ou F: ");
-    scanf("%s", sexo);
-    printf("Digite o contato do paciente: ");
-    scanf("%s", contato);
-    printf("Digite o nome do medico: ");
-    scanf("%s", medico);
-    printf("Digite a especializacao do medico: ");
-    scanf("%s", especializacao);
+    
     getchar(); // Limpa o buffer do teclado
 
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -208,8 +204,9 @@ void agendar_consulta (void) {
     printf("                                                         \n");
     printf("   DATA:%s       \n",data);
     printf("   PACIENTE:%s    \n",paciente);
-    printf("   CPF:%s  IDADE:%s     \n"CPF, data);
-    printf("   SEXO:%s      CONTATO:%s     \n",sexo, contato);
+    printf("   CPF:%s  IDADE:%s     \n",CPF, data);
+    printf("   SEXO:%s      TELEFONE:%s     \n",sexo, contato);
+    printf("   EMAIL:%s \n",email);
     printf("                                                         \n");
     printf("                                                         \n");
     printf("   MEDICO:%s     \n",medico);
