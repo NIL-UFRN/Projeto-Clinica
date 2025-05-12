@@ -20,6 +20,6 @@ struct medico {
 typedef struct consulta Consulta;
 struct consulta {
     char data[10];
-    Paciente paciente;
-    Medico medico;
+    char CPF_p[15];
+    char CPF_m[15];
 };
