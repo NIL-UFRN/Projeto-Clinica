@@ -66,6 +66,7 @@ void deletar_medico (void){
     char nome[50] = "";
     char CPF[15] = "";
     char especializacao[20] = "";
+    char contato[15] = "";
     system("color 0c");
     system("cls || clear");
 
@@ -79,12 +80,16 @@ void deletar_medico (void){
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("                                                         \n");
-    printf("           NOME:%s   \n",nome);
     printf("                                                         \n");
-    printf("           CPF:%s \n",CPF);
-    printf("                                                         \n");
-    printf("           ESPECIALIZACAO:%s  \n",especializacao);
-    printf("                                                         \n");
+    printf("           NOME:%s\n",nome);
+    printf("                                                        \n");
+    printf("           CPF: ");
+    print_CPF(CPF);
+    printf("                                                       \n");
+    printf("           CONTATO:%s \n",contato);  
+    printf("                                                        \n");
+    printf("           ESPECIALIZACAO:%s\n",especializacao);
+    printf("                                                        \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 
     getchar();
