@@ -2,6 +2,7 @@
 # include <stdlib.h> 
 # include "cadastrar.h"
 # include "utio.h" //biblioteca para funcoes
+# include "estrutura.h"
 
 void modulo_cadastro (void) {
     char op;
@@ -57,7 +58,7 @@ char menu_cadastro (void) {
 } 
 
 void cadastrar_medico (void) {
-    char nome[50], CPF[15], especializacao[20], resp;
+    char nome[50], CPF[15], especializacao[20], contato[15], resp;
     do{
             system("cls || clear");
             printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -69,6 +70,8 @@ void cadastrar_medico (void) {
             printf("@@           NOME:                                         @@\n");
             printf("@@                                                         @@\n");
             printf("@@           CPF:                                          @@\n");
+            printf("@@                                                         @@\n");
+            printf("@@           CONTATO:                                      @@\n");
             printf("@@                                                         @@\n");
             printf("@@           ESPECIALIZACAO:                               @@\n");
             printf("@@                                                         @@\n");
@@ -93,6 +96,8 @@ void cadastrar_medico (void) {
             printf("                                                        \n");
             printf("           CPF: ");
             print_CPF(CPF);
+            printf("                                                       \n");
+            printf("           CONTATO:%s\n",contato);  
             printf("                                                        \n");
             printf("           ESPECIALIZACAO:%s\n",especializacao);
             printf("                                                        \n");
