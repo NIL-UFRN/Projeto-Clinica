@@ -214,9 +214,9 @@ void agendar_consulta (void) {
     printf("Digite a hora da consulta: ");
     fgets(consulta.hora, 6, stdin);
     printf("Digite o CPF do paciente: ");
-    fgets(consulta.CPF_p, 15, stdin);
+    ler_CPF(consulta.CPF_p);
     printf("Digite o CPF do medico: ");
-    fgets(consulta.CPF_m, 15, stdin);
+    ler_CPF(consulta.CPF_m);
     getchar(); // Limpa o buffer do teclado
 
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
