@@ -190,7 +190,9 @@ void cadastrar_paciente (void) {
 
 void agendar_consulta (void) {
     system("cls || clear");
-    char data[10], hora[6], paciente[50], CPF[15], sexo[3], contato[15], medico[50], especializacao[20], email[50];
+    Consulta consulta;
+    Medico medico;
+    Paciente paciente;
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  AGENDAR CONSULTA                       @@\n");
@@ -208,8 +210,13 @@ void agendar_consulta (void) {
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Digite a data da consulta: ");
-    scanf("%s", data);
-    
+    fgets(consulta.data, 10, stdin);
+    printf("Digite a hora da consulta: ");
+    fgets(consulta.hora, 6, stdin);
+    printf("Digite o CPF do paciente: ");
+    fgets(consulta.CPF_p, 15, stdin);
+    printf("Digite o CPF do medico: ");
+    fgets(consulta.CPF_m, 15, stdin);
     getchar(); // Limpa o buffer do teclado
 
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -218,15 +225,15 @@ void agendar_consulta (void) {
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("                                                         \n");
-    printf("   DATA:%s      HORA:%s \n",data,hora);
-    printf("   PACIENTE:%s    \n",paciente);
-    printf("   CPF:%s  IDADE:%s     \n",CPF, data);
-    printf("   SEXO:%s      TELEFONE:%s     \n",sexo, contato);
-    printf("   EMAIL:%s \n",email);
+    printf("   DATA:%s      HORA:%s \n",consulta.data,consulta.hora);
+    printf("   PACIENTE:%s    \n",paciente.nome);
+    printf("   CPF:%s  IDADE:%s     \n",paciente.CPF, paciente.data_nascimento);
+    printf("   SEXO:%s      TELEFONE:%s     \n",paciente.sexo, paciente.contato);
+    printf("   EMAIL:%s \n",paciente.email);
     printf("                                                         \n");
     printf("                                                         \n");
-    printf("   MEDICO:%s     \n",medico);
-    printf("  ESPECIALIZACAO:%s  \n",especializacao);
+    printf("   MEDICO:%s     \n",medico.nome);
+    printf("  ESPECIALIZACAO:%s  \n",medico.especialidade);
     printf("                                                         \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 
