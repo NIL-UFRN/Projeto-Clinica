@@ -5,7 +5,7 @@ struct paciente {
     char CPF[15];
     char email[50];
     char data_nascimento[12];
-    char sexo;
+    char sexo[3];
     char contato[15];
 };
 
