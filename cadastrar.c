@@ -119,8 +119,10 @@ void cadastrar_medico (void) {
 
 void cadastrar_paciente (void) {
     system("cls || clear");
-    char nome[50], CPF[15], sexo[3], data_nascimento[12], contato[15], email[50], resp;
-    do{ 
+    //char nome[50], CPF[15], sexo[3], data_nascimento[12], contato[15], email[50], resp;
+    Paciente paciente;
+    char resp;
+    do{
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
         printf("@@                                                         @@\n");
         printf("@@                  CADASTRAR PACIENTE                     @@\n");
@@ -142,18 +144,18 @@ void cadastrar_paciente (void) {
         printf("@@                                                         @@\n");
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
         printf("Digite o nome do paciente: ");
-        fgets(nome, 50, stdin);
+        fgets(paciente.nome, 50, stdin);
         printf("Digite a data de nascimento: ");
-        Ler_data(data_nascimento); // Chama a funcao para ler a data
+        Ler_data(paciente.data_nascimento); // Chama a funcao para ler a data
         printf("Digite o CPF do paciente: ");
-        ler_CPF(CPF); // Chama a função para ler o CPF
+        ler_CPF(paciente.CPF); // Chama a função para ler o CPF
         getchar(); // Limpa o buffer do teclado
         printf("Digite o sexo do paciente M ou F: ");
-        fgets(sexo, 3, stdin);
+        fgets(paciente.sexo, 3, stdin);
         printf("Digite o telefone do paciente: ");
-        fgets(contato, 15, stdin);
+        fgets(paciente.contato, 15, stdin);
         printf("Digite o email do paciente: ");
-        fgets(email, 50, stdin); // Chama a função para ler o email
+        fgets(paciente.email, 50, stdin); // Chama a função para ler o email
         getchar(); // Limpa o buffer do teclado
 
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -162,19 +164,19 @@ void cadastrar_paciente (void) {
         printf("@@                                                         @@\n");
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
         printf("                                                         \n");
-        printf("           NOME:%s\n",nome);
+        printf("           NOME:%s\n",paciente.nome);
         printf("                                                        \n");
-        printf("           IDADE:%s\n",data_nascimento);
+        printf("           IDADE:%s\n",paciente.data_nascimento);
         printf("                                                        \n");
         printf("           CPF:");
-        print_CPF(CPF);
+        print_CPF(paciente.CPF);
         printf("                                                        \n");
         printf("                                                        \n");
-        printf("           CONTATO:%s\n",contato);
+        printf("           CONTATO:%s\n",paciente.contato);
         printf("                                                        \n");
-        printf("           EMAIL:%s\n",email);
+        printf("           EMAIL:%s\n",paciente.email);
         printf("                                                        \n");
-        printf("           SEXO:%s\n",sexo);
+        printf("           SEXO:%s\n",paciente.sexo);
         printf("                                                        \n");
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
         printf("Os dados estao corretos? (S/N): ");
