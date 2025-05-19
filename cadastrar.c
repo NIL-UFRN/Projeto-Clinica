@@ -1,5 +1,6 @@
 # include <stdio.h>
 # include <stdlib.h> 
+# include <string.h> //biblioteca para funcoes de string
 # include "cadastrar.h"
 # include "utio.h" //biblioteca para funcoes
 # include "estrutura.h"
@@ -80,11 +81,19 @@ void cadastrar_medico (void) {
             printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
             printf("Digite o nome do medico: ");
             fgets(medico.nome, 50, stdin);
+            int tam = strlen(medico.nome);
+            if (medico.nome[tam - 1] == '\n') {
+                medico.nome[tam - 1] = '\0'; // Remove o caractere de nova linha
+            }
             printf("Digite o CPF do medico: ");
             ler_CPF(medico.CPF); // Chama a função para ler o CPF
             getchar(); // Limpa o buffer do teclado
             printf("Digite o telefone do medico: ");
             fgets(medico.contato, 15, stdin);
+            tam = strlen(medico.contato);
+            if (medico.contato[tam - 1] == '\n') {
+                medico.contato[tam - 1] = '\0'; // Remove o caractere de nova linha
+            }
             printf("Digite a especializacao do medico: ");
             fgets(medico.especialidade, 20, stdin);
 
@@ -110,12 +119,24 @@ void cadastrar_medico (void) {
             scanf("%c", &resp);
             getchar();
     }while (resp != 'S' && resp != 's'); // Verifica se o usuário digitou 'S' ou 's'
+
+    grava_medico(medico); // Chama a função para gravar os dados do médico
+
     printf("Cadastro realizado com sucesso!\n");      
     delay(1);            
                     
  }   
 
-
+void grava_medico(Medico medico) {
+    FILE *arq_medico;
+    arq_medico = fopen("medicos.txt", "wt");
+    if (arq_medico == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    fprintf(arq_medico, "%s;%s;%s;%s\n", medico.nome, medico.CPF, medico.contato, medico.especialidade);
+    fclose(arq_medico);
+}
 
 void cadastrar_paciente (void) {
     system("cls || clear");
