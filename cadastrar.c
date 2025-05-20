@@ -61,7 +61,7 @@ char menu_cadastro (void) {
 void cadastrar_medico (void) {
     //char nome[50], CPF[15], especializacao[20], contato[15], 
     Medico medico;
-    char resp;
+    char resp, tam;
     do{
             system("cls || clear");
             printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -80,8 +80,8 @@ void cadastrar_medico (void) {
             printf("@@                                                         @@\n");
             printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
             printf("Digite o nome do medico: ");
-            fgets(medico.nome, 50, stdin);
-            int tam = strlen(medico.nome);
+            ler_nome(medico.nome);
+            tam = strlen(medico.nome);
             if (medico.nome[tam - 1] == '\n') {
                 medico.nome[tam - 1] = '\0'; // Remove o caractere de nova linha
             }

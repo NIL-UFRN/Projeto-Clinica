@@ -8,3 +8,4 @@ int bissexto(int );
 int testaData(int, int, int);
 char ler_email(char*);
 void validar_email(char*);
+void ler_nome (char [50]);

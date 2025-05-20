@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h> //biblioteca para colorir o terminal
+#include <string.h>
 #include <time.h> // biblioteca para manipular tempo
 #include "utio.h"
 
@@ -65,27 +66,27 @@ void print_CPF (char CPF[15]) {
     printf("%c%c\n", CPF[9], CPF[10]);
 }
 
-char ler_email (char* email) {
-    printf("Digite o email: ");
-    scanf("%s", email);
-    validar_email(email); // Chama a função para ler email
-}
+//char ler_email (char email) {
+  //  printf("Digite o email: ");
+    //scanf("%s", email);
+    //validar_email(email); // Chama a função para ler email
+//}
 
 // VALIDADECAO EMAIL FEITO COM AJUDA DO CHATGPT
-void validar_email(char* email) {
-   int i = 0, arroba = -1, ponto2 = 0;
-   do {
-       if email[i] == '@') {
-           arroba = i;
-       } else if (email[i] == '.') {
-           ponto2 = i;
-       }
-   }while (email[i] != '\0' && i < 50); // Verifica se o email é válido
-   {
-    /* code */
-   }
+//void validar_email(char* email) {
+  // int i = 0, arroba = -1, ponto2 = 0;
+   //do {
+     //  if email[i] == '@') {
+         //  arroba = i;
+       //} else if (email[i] == '.') {
+           //ponto2 = i;
+      // }
+  // }while (email[i] != '\0' && i < 50); // Verifica se o email é válido
+   //{
+    //* code */
+   //}
    
-}
+//}
 
 
 void Ler_data(char data[12]) {
@@ -135,4 +136,14 @@ int testaData(int dd, int mm, int aa) {
     if (dd < 1 || dd > maiorDia)
      return 0;
     return 1;
+}
+
+
+void ler_nome (char nome[50]) {
+    printf("Digite o nome: ");
+    fgets(nome, 50, stdin);
+    size_t len = strlen(nome);
+    if (len > 0 && nome[len - 1] == '\n') {
+        nome[len - 1] = '\0'; // Remove a nova linha
+    }
 }
