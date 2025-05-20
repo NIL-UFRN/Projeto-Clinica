@@ -177,6 +177,10 @@ void cadastrar_paciente (void) {
         getchar(); // Limpa o buffer do teclado
         printf("Digite o sexo do paciente M ou F: ");
         fgets(paciente.sexo, 3, stdin);
+        tam = strlen(paciente.sexo);
+        if (paciente.sexo[tam - 1] == '\n') {
+            paciente.sexo[tam - 1] = '\0'; // Remove o caractere de nova linha
+        }
         printf("Digite o telefone do paciente: ");
         fgets(paciente.contato, 15, stdin);
         tam = strlen(paciente.contato);
@@ -216,9 +220,23 @@ void cadastrar_paciente (void) {
         scanf("%c", &resp); 
         getchar();
     }while (resp != 'S' && resp != 's'); // Verifica se o usuário digitou 'S' ou 's'
+
+    grava_paciente(paciente); // Chama a função para gravar os dados do paciente
+
     printf("Cadastro realizado com sucesso!\n");
     delay(1);    
 
+}
+
+void grava_paciente(Paciente paciente) {
+    FILE *arq_paciente;
+    arq_paciente = fopen("pacientes.txt", "wt");
+    if (arq_paciente == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    fprintf(arq_paciente, "%s;%s;%s;%s;%s;%s\n", paciente.nome, paciente.CPF, paciente.data_nascimento, paciente.sexo, paciente.contato, paciente.email);
+    fclose(arq_paciente);
 }
 
 void agendar_consulta (void) {
