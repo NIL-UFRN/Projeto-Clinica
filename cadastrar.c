@@ -142,7 +142,7 @@ void cadastrar_paciente (void) {
     system("cls || clear");
     //char nome[50], CPF[15], sexo[3], data_nascimento[12], contato[15], email[50], resp;
     Paciente paciente;
-    char resp;
+    char resp, tam;
     do{
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
         printf("@@                                                         @@\n");
@@ -165,7 +165,11 @@ void cadastrar_paciente (void) {
         printf("@@                                                         @@\n");
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
         printf("Digite o nome do paciente: ");
-        fgets(paciente.nome, 50, stdin);
+        ler_nome(paciente.nome);
+        tam = strlen(paciente.nome);
+        if (paciente.nome[tam - 1] == '\n') {
+            paciente.nome[tam - 1] = '\0'; // Remove o caractere de nova linha
+        }
         printf("Digite a data de nascimento: ");
         Ler_data(paciente.data_nascimento); // Chama a funcao para ler a data
         printf("Digite o CPF do paciente: ");
@@ -175,8 +179,16 @@ void cadastrar_paciente (void) {
         fgets(paciente.sexo, 3, stdin);
         printf("Digite o telefone do paciente: ");
         fgets(paciente.contato, 15, stdin);
+        tam = strlen(paciente.contato);
+        if (paciente.contato[tam - 1] == '\n') {
+            paciente.contato[tam - 1] = '\0'; // Remove o caractere de nova linha
+        }
         printf("Digite o email do paciente: ");
         fgets(paciente.email, 50, stdin); // Chama a função para ler o email
+        tam = strlen(paciente.email);
+        if (paciente.email[tam - 1] == '\n') {
+            paciente.email[tam - 1] = '\0'; // Remove o caractere de nova linha
+        }
         getchar(); // Limpa o buffer do teclado
 
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
