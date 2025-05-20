@@ -171,7 +171,7 @@ void cadastrar_paciente (void) {
             paciente.nome[tam - 1] = '\0'; // Remove o caractere de nova linha
         }
         printf("Digite a data de nascimento: ");
-        Ler_data(paciente.data_nascimento); // Chama a funcao para ler a data
+        ler_data(paciente.data_nascimento); // Chama a funcao para ler a data
         printf("Digite o CPF do paciente: ");
         ler_CPF(paciente.CPF); // Chama a função para ler o CPF
         getchar(); // Limpa o buffer do teclado
@@ -242,8 +242,6 @@ void grava_paciente(Paciente paciente) {
 void agendar_consulta (void) {
     system("cls || clear");
     Consulta consulta;
-    Medico medico;
-    Paciente paciente;
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                  AGENDAR CONSULTA                       @@\n");
@@ -257,11 +255,12 @@ void agendar_consulta (void) {
     printf("@@                                                         @@\n");
     printf("@@                                                         @@\n");
     printf("@@   MEDICO:                                               @@\n");
+    printf("@@   CPF:                                                  @@\n");
     printf("@@   ESPECIALIZACAO:                                       @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Digite a data da consulta: ");
-    fgets(consulta.data, 10, stdin);
+    ler_data(consulta.data);
     printf("Digite a hora da consulta: ");
     fgets(consulta.hora, 6, stdin);
     printf("Digite o CPF do paciente: ");
@@ -277,14 +276,15 @@ void agendar_consulta (void) {
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("                                                         \n");
     printf("   DATA:%s      HORA:%s \n",consulta.data,consulta.hora);
-    printf("   PACIENTE:%s    \n",paciente.nome);
-    printf("   CPF:%s  IDADE:%s     \n",paciente.CPF, paciente.data_nascimento);
-    printf("   SEXO:%s      TELEFONE:%s     \n",paciente.sexo, paciente.contato);
-    printf("   EMAIL:%s \n",paciente.email);
+    printf("   PACIENTE:   \n");
+    printf("   CPF:%s  IDADE:   \n",consulta.CPF_p);
+    printf("   SEXO:      TELEFONE:    \n");
+    printf("   EMAIL: \n");
     printf("                                                         \n");
     printf("                                                         \n");
-    printf("   MEDICO:%s     \n",medico.nome);
-    printf("  ESPECIALIZACAO:%s  \n",medico.especialidade);
+    printf("  MEDICO:    \n");
+    printf("  CPF:%s  \n",consulta.CPF_m);
+    printf("  ESPECIALIZACAO:  \n");
     printf("                                                         \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 
