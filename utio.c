@@ -89,12 +89,13 @@ void print_CPF (char CPF[15]) {
 //}
 
 
-void Ler_data(char data[12]) {
+void ler_data(char data[12]) {
     int dia, mes, ano;
     int dataValida;
      //printf("Programa Data de Nascimento\n\n");
     do {
         scanf("%d/%d/%d", &dia, &mes, &ano);
+        getchar(); // Limpa o buffer do teclado
         //printf("Data digitada: %02d/%02d/%04d\n", dia, mes, ano);
         dataValida = testaData(dia, mes, ano);
         if (!dataValida) {
