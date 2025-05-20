@@ -241,6 +241,7 @@ void grava_paciente(Paciente paciente) {
 
 void agendar_consulta (void) {
     system("cls || clear");
+    char tam;
     Consulta consulta;
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -263,6 +264,10 @@ void agendar_consulta (void) {
     ler_data(consulta.data);
     printf("Digite a hora da consulta: ");
     fgets(consulta.hora, 6, stdin);
+    tam = strlen(consulta.hora);
+    if (consulta.hora[tam - 1] == '\n') {
+        consulta.hora[tam - 1] = '\0'; // Remove o caractere de nova linha
+    }
     printf("Digite o CPF do paciente: ");
     ler_CPF(consulta.CPF_p);
     printf("Digite o CPF do medico: ");
@@ -288,7 +293,20 @@ void agendar_consulta (void) {
     printf("                                                         \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
 
-    printf("Precione a tecla ENTER para continuar...");
-    getchar();
+    grava_consulta(consulta); // Chama a função para gravar os dados da consulta
 
+    printf("Consulta agendada com sucesso!\n");
+    delay(1);
+
+
+}
+void grava_consulta(Consulta consulta) {
+    FILE *arq_consulta;
+    arq_consulta = fopen("consultas.txt", "wt");
+    if (arq_consulta == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    fprintf(arq_consulta, "%s;%s;%s;%s\n", consulta.data, consulta.hora, consulta.CPF_p, consulta.CPF_m);
+    fclose(arq_consulta);
 }
