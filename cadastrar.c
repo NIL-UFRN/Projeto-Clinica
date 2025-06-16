@@ -323,11 +323,11 @@ void agendar_consulta (void) {
 }
 void grava_consulta(Consulta consulta) {
     FILE *arq_consulta;
-    arq_consulta = fopen("consultas.txt", "wt");
+    arq_consulta = fopen("consultas.dat", "ab");
     if (arq_consulta == NULL) {
         printf("Erro ao abrir o arquivo!\n");
         exit(1);
     }
-    fprintf(arq_consulta, "%s;%s;%s;%s\n", consulta.data, consulta.hora, consulta.CPF_p, consulta.CPF_m);
+    fwrite(&consulta, sizeof(Consulta), 1, arq_consulta);
     fclose(arq_consulta);
 }

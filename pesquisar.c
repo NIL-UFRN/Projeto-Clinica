@@ -3,6 +3,8 @@
 #include "utio.h"
 #include "pesquisar.h"
 #include "estrutura.h"
+#include "funcoes.h"
+#include <string.h>
 
 void modulo_pesquisar (void){
     char op;
@@ -58,35 +60,42 @@ char menu_pesquisar (void) {
     return op;
 }
 void pesquisar_medico (void){
-    char nome[50] = "";
+    Medico medico;
     char CPF[15] = "";
-    char especializacao[20] = ""; 
-    char contato[15] = "";
-    
+    int tam;
+    FILE *arq_medico;
+    int achou;
     system ("color 0e");
     system("cls || clear");
     printf("Digite o CPF do medico: ");
     fgets(CPF, 15, stdin);
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o caractere de nova linha
+    }
     getchar();
 
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                     FICHA  MEDICO                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("                                                         \n");
-    printf("           NOME:%s\n",nome);
-    printf("                                                        \n");
-    printf("           CPF: ");
-    print_CPF(CPF);
-    printf("                                                       \n");
-    printf("           CONTATO:%s\n",contato);  
-    printf("                                                        \n");
-    printf("           ESPECIALIZACAO:%s\n",especializacao);
-    printf("                                                        \n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
-    getchar();
+    arq_medico = fopen("medicos.dat", "rb");
+    if (arq_medico == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    achou = 0;
+    while (fread(&medico, sizeof(Medico), 1, arq_medico)&&(!achou)) {
+        printf("CPF: |%s|\n", medico.CPF);
+        printf("CPF pesquisado: |%s|\n", CPF);
+        if (strcmp(medico.CPF, CPF) == 0) {
+            exibir_medico(medico);
+            achou = 1;
+        }
+    
+    }
+    if (!achou) {
+        printf("Medico nao encontrado.\n");
+        delay(20);
+    }
+    fclose(arq_medico);
+    getchar(); // Limpa o buffer do teclado
 }
 
 // void pesquisar_medico (void){
@@ -152,15 +161,9 @@ void pesquisar_paciente (void){
 
 }
 void pesquisar_agenda (void){
-    char id[11] = "";
+    Consulta consulta;
     char data[11] = "";
-    char paciente[50] = "";
-    char CPF[15] = "";
-    char idade[3] = "";
-    char sexo[10] = "";
-    char contato[15] = "";
-    char medico[50] = "";
-    char especializacao[20] = "";
+    FILE *arq_agenda;
     system ("color 0e");
     system("cls || clear");
 
@@ -168,24 +171,21 @@ void pesquisar_agenda (void){
     fgets(data, 11, stdin);
     getchar();
 
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  PESQUISAR AGENDA                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("                                                         \n");
-    printf("   ID:%s \n",id);
-    printf("   DATA:%s \n",data);
-    printf("   PACIENTE:%s \n",paciente);
-    printf("   CPF:%s    IDADE:%s  \n",CPF,idade);
-    printf("   SEXO:%s    CONTATO:%s \n",sexo,contato);
-    printf("                                                         \n");
-    printf("                                                        \n");
-    printf("   MEDICO:%s \n",medico.nome);
-    printf("   CPF:%s \n",medico.CPF);
-    printf("   ESPECIALIZACAO:%s \n",medico.especializacao);
-    printf("                                                         \n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
-    getchar();
+    arq_agenda = fopen("agenda.dat", "rb");
+    if (arq_agenda == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    int achou = 0;
+    while (fread(&consulta, sizeof(Consulta), 1, arq_agenda) && !achou) {
+        if (strcmp(consulta.data, data) == 0) {
+            exibir_consulta(consulta);
+            achou = 1;
+        }
+    }
+    if (!achou) {
+        printf("Consulta nao encontrada.\n");
+        delay(1);
+    }
+    fclose(arq_agenda);
 }

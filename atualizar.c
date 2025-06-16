@@ -3,7 +3,7 @@
 # include "utio.h"
 # include "atualizar.h"
 # include "estrutura.h"
-
+#include "funcoes.h"
 
 void modulo_atualizar (void){
     char op;
@@ -61,10 +61,8 @@ char menu_atualizar(void) {
 }
 
 void atualizar_medico (void) {
-    char nome[50] = "";
-    char CPF[15] = "";
-    char especializacao[20] = "";
-    char contato[15] = "";
+    Medico medico;
+    
     system ("color 09");
     system("cls || clear");
     printf("Digite o CPF do medico: ");
