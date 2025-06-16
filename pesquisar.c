@@ -150,8 +150,9 @@ void pesquisar_agenda (void){
     printf("   SEXO:%s    CONTATO:%s \n",sexo,contato);
     printf("                                                         \n");
     printf("                                                        \n");
-    printf("   MEDICO:%s \n",medico);
-    printf("   ESPECIALIZACAO:%s \n",especializacao);
+    printf("   MEDICO:%s \n",medico.nome);
+    printf("   CPF:%s \n",medico.CPF);
+    printf("   ESPECIALIZACAO:%s \n",medico.especializacao);
     printf("                                                         \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("Precione a tecla ENTER para continuar...");

@@ -249,6 +249,7 @@ void agendar_consulta (void) {
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
+    printf("@@   ID:                                                   @@\n");
     printf("@@   DATA:             HORA:                               @@\n");
     printf("@@   PACIENTE:                                             @@\n");
     printf("@@   CPF:                                IDADE:            @@\n");
@@ -263,11 +264,19 @@ void agendar_consulta (void) {
     printf("Digite a data da consulta: ");
     ler_data(consulta.data);
     printf("Digite a hora da consulta: ");
-    fgets(consulta.hora, 6, stdin);
+    fgets(consulta.hora, 6, stdin);   
     tam = strlen(consulta.hora);
     if (consulta.hora[tam - 1] == '\n') {
         consulta.hora[tam - 1] = '\0'; // Remove o caractere de nova linha
     }
+    getchar(); // Limpa o buffer do teclado
+    printf("Digite o ID da consulta: ");
+    fgets(consulta.id, 11, stdin);
+    tam = strlen(consulta.id);
+    if (consulta.id[tam - 1] == '\n') {
+        consulta.id[tam - 1] = '\0'; // Remove o caractere de nova linha
+    }
+    getchar(); // Limpa o buffer do teclado
     printf("Digite o CPF do paciente: ");
     ler_CPF(consulta.CPF_p);
     printf("Digite o CPF do medico: ");
@@ -280,6 +289,7 @@ void agendar_consulta (void) {
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("                                                         \n");
+    printf("   ID:%s \n",consulta.id);
     printf("   DATA:%s      HORA:%s \n",consulta.data,consulta.hora);
     printf("   PACIENTE:   \n");
     printf("   CPF:%s  IDADE:   \n",consulta.CPF_p);
@@ -292,6 +302,7 @@ void agendar_consulta (void) {
     printf("  ESPECIALIZACAO:  \n");
     printf("                                                         \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    getchar(); // Limpa o buffer do teclado
 
     grava_consulta(consulta); // Chama a função para gravar os dados da consulta
 
