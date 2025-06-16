@@ -129,14 +129,24 @@ void cadastrar_medico (void) {
 
 void grava_medico(Medico medico) {
     FILE *arq_medico;
-    arq_medico = fopen("medicos.txt", "wt");
+    arq_medico = fopen("medicos.dat", "ab");
     if (arq_medico == NULL) {
         printf("Erro ao abrir o arquivo!\n");
         exit(1);
     }
-    fprintf(arq_medico, "%s;%s;%s;%s\n", medico.nome, medico.CPF, medico.contato, medico.especialidade);
+    fwrite(&medico, sizeof(Medico), 1, arq_medico);
     fclose(arq_medico);
 }
+// void grava_medico(Medico medico) {
+//     FILE *arq_medico;
+//     arq_medico = fopen("medicos.txt", "wt");
+//     if (arq_medico == NULL) {
+//         printf("Erro ao abrir o arquivo!\n");
+//         exit(1);
+//     }
+//     fprintf(arq_medico, "%s;%s;%s;%s\n", medico.nome, medico.CPF, medico.contato, medico.especialidade);
+//     fclose(arq_medico);
+// }
 
 void cadastrar_paciente (void) {
     system("cls || clear");

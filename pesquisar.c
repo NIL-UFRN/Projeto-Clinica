@@ -57,7 +57,6 @@ char menu_pesquisar (void) {
     fflush(stdin);
     return op;
 }
-
 void pesquisar_medico (void){
     char nome[50] = "";
     char CPF[15] = "";
@@ -89,6 +88,38 @@ void pesquisar_medico (void){
     printf("Precione a tecla ENTER para continuar...");
     getchar();
 }
+
+// void pesquisar_medico (void){
+//     char nome[50] = "";
+//     char CPF[15] = "";
+//     char especializacao[20] = ""; 
+//     char contato[15] = "";
+    
+//     system ("color 0e");
+//     system("cls || clear");
+//     printf("Digite o CPF do medico: ");
+//     fgets(CPF, 15, stdin);
+//     getchar();
+
+//     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+//     printf("@@                                                         @@\n");
+//     printf("@@                     FICHA  MEDICO                       @@\n");
+//     printf("@@                                                         @@\n");
+//     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+//     printf("                                                         \n");
+//     printf("           NOME:%s\n",nome);
+//     printf("                                                        \n");
+//     printf("           CPF: ");
+//     print_CPF(CPF);
+//     printf("                                                       \n");
+//     printf("           CONTATO:%s\n",contato);  
+//     printf("                                                        \n");
+//     printf("           ESPECIALIZACAO:%s\n",especializacao);
+//     printf("                                                        \n");
+//     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+//     printf("Precione a tecla ENTER para continuar...");
+//     getchar();
+// }
 
 void pesquisar_paciente (void){
     char nome[50] = "";
