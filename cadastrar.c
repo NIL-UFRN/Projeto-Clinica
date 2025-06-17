@@ -4,6 +4,7 @@
 # include "cadastrar.h"
 # include "utio.h" //biblioteca para funcoes
 # include "estrutura.h"
+# include "funcoes.h"
 
 void modulo_cadastro (void) {
     char op;
@@ -127,16 +128,6 @@ void cadastrar_medico (void) {
                     
  }   
 
-void grava_medico(Medico medico) {
-    FILE *arq_medico;
-    arq_medico = fopen("medicos.dat", "ab");
-    if (arq_medico == NULL) {
-        printf("Erro ao abrir o arquivo!\n");
-        exit(1);
-    }
-    fwrite(&medico, sizeof(Medico), 1, arq_medico);
-    fclose(arq_medico);
-}
 // void grava_medico(Medico medico) {
 //     FILE *arq_medico;
 //     arq_medico = fopen("medicos.txt", "wt");
@@ -238,16 +229,7 @@ void cadastrar_paciente (void) {
 
 }
 
-void grava_paciente(Paciente paciente) {
-    FILE *arq_paciente;
-    arq_paciente = fopen("pacientes.dat", "ab");
-    if (arq_paciente == NULL) {
-        printf("Erro ao abrir o arquivo!\n");
-        exit(1);
-    }
-    fwrite(&paciente, sizeof(Paciente), 1, arq_paciente);
-    fclose(arq_paciente);
-}
+
 
 void agendar_consulta (void) {
     system("cls || clear");
@@ -317,7 +299,7 @@ void agendar_consulta (void) {
         printf("Os dados estao corretos? (S/N): ");
         scanf("%c", &resp);
         getchar();
-        
+
     }while (resp != 'S' && resp != 's'); // Verifica se o usuário digitou 'S' ou 's'
 
         grava_consulta(consulta); // Chama a função para gravar os dados da consulta
@@ -327,13 +309,4 @@ void agendar_consulta (void) {
 
 
 }
-void grava_consulta(Consulta consulta) {
-    FILE *arq_consulta;
-    arq_consulta = fopen("consultas.dat", "ab");
-    if (arq_consulta == NULL) {
-        printf("Erro ao abrir o arquivo!\n");
-        exit(1);
-    }
-    fwrite(&consulta, sizeof(Consulta), 1, arq_consulta);
-    fclose(arq_consulta);
-}
+
