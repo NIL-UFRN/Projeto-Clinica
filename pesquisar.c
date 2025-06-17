@@ -92,7 +92,7 @@ void pesquisar_medico (void){
     }
     if (!achou) {
         printf("Medico nao encontrado.\n");
-        delay(20);
+        delay(2);
     }
     fclose(arq_medico);
     getchar(); // Limpa o buffer do teclado
@@ -131,35 +131,42 @@ void pesquisar_medico (void){
 // }
 
 void pesquisar_paciente (void){
-    char nome[50] = "";
+    Paciente paciente;
     char CPF[15] = "";
-    char sexo[10] = "";
-    char idade[3] = "";
+    int tam;
+    FILE *arq_paciente;
+    int achou;
+
     system ("color 0e");
     system("cls || clear");
     printf("Coloque o CPF do paciente: ");
     fgets(CPF, 15, stdin);
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o caractere de nova linha
+    }
     getchar();
 
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  PESQUISAR PACIENTE                     @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("                                                         \n");
-    printf("           NOME:%s    \n",nome);
-    printf("                                                         \n");
-    printf("           IDADE:%s   \n",idade);
-    printf("                                                         \n");
-    printf("           CPF:%s    \n",CPF);
-    printf("                                                         \n");
-    printf("           SEXO:%s    \n",sexo);
-    printf("                                                         \n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
-    getchar();
-
+    arq_paciente = fopen("pacientes.dat", "rb");
+    if (arq_paciente == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    achou = 0;
+    while (fread(&paciente, sizeof(Paciente), 1, arq_paciente) && !achou) {
+        if (strcmp(paciente.CPF, CPF) == 0) {
+            exibir_paciente(paciente);
+            achou = 1;
+        }
+    }
+    if (!achou) {
+        printf("Paciente nao encontrado.\n");
+        delay(2);
+    }
+    fclose(arq_paciente);
 }
+
+
 void pesquisar_agenda (void){
     Consulta consulta;
     char data[11] = "";
@@ -185,7 +192,7 @@ void pesquisar_agenda (void){
     }
     if (!achou) {
         printf("Consulta nao encontrada.\n");
-        delay(1);
+        delay(2);
     }
     fclose(arq_agenda);
 }

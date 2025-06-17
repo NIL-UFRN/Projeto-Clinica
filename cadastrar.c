@@ -251,73 +251,79 @@ void grava_paciente(Paciente paciente) {
 
 void agendar_consulta (void) {
     system("cls || clear");
-    char tam;
+    char tam, resp;
     Consulta consulta;
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  AGENDAR CONSULTA                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@   ID:                                                   @@\n");
-    printf("@@   DATA:             HORA:                               @@\n");
-    printf("@@   PACIENTE:                                             @@\n");
-    printf("@@   CPF:                                IDADE:            @@\n");
-    printf("@@   SEXO:                     CONTATO:                    @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@   MEDICO:                                               @@\n");
-    printf("@@   CPF:                                                  @@\n");
-    printf("@@   ESPECIALIZACAO:                                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Digite a data da consulta: ");
-    ler_data(consulta.data);
-    printf("Digite a hora da consulta: ");
-    fgets(consulta.hora, 6, stdin);   
-    tam = strlen(consulta.hora);
-    if (consulta.hora[tam - 1] == '\n') {
-        consulta.hora[tam - 1] = '\0'; // Remove o caractere de nova linha
-    }
-    getchar(); // Limpa o buffer do teclado
-    printf("Digite o ID da consulta: ");
-    fgets(consulta.id, 11, stdin);
-    tam = strlen(consulta.id);
-    if (consulta.id[tam - 1] == '\n') {
-        consulta.id[tam - 1] = '\0'; // Remove o caractere de nova linha
-    }
-    getchar(); // Limpa o buffer do teclado
-    printf("Digite o CPF do paciente: ");
-    ler_CPF(consulta.CPF_p);
-    printf("Digite o CPF do medico: ");
-    ler_CPF(consulta.CPF_m);
-    getchar(); // Limpa o buffer do teclado
+    do{
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("@@                                                         @@\n");
+        printf("@@                  AGENDAR CONSULTA                       @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("@@                                                         @@\n");
+        printf("@@   ID:                                                   @@\n");
+        printf("@@   DATA:             HORA:                               @@\n");
+        printf("@@   PACIENTE:                                             @@\n");
+        printf("@@   CPF:                                IDADE:            @@\n");
+        printf("@@   SEXO:                     CONTATO:                    @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@   MEDICO:                                               @@\n");
+        printf("@@   CPF:                                                  @@\n");
+        printf("@@   ESPECIALIZACAO:                                       @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("Digite a data da consulta: ");
+        ler_data(consulta.data);
+        printf("Digite a hora da consulta: ");
+        fgets(consulta.hora, 6, stdin);   
+        tam = strlen(consulta.hora);
+        if (consulta.hora[tam - 1] == '\n') {
+            consulta.hora[tam - 1] = '\0'; // Remove o caractere de nova linha
+        }
+        getchar(); // Limpa o buffer do teclado
+        printf("Digite o ID da consulta: ");
+        fgets(consulta.id, 11, stdin);
+        tam = strlen(consulta.id);
+        if (consulta.id[tam - 1] == '\n') {
+            consulta.id[tam - 1] = '\0'; // Remove o caractere de nova linha
+        }
+        getchar(); // Limpa o buffer do teclado
+        printf("Digite o CPF do paciente: ");
+        ler_CPF(consulta.CPF_p);
+        printf("Digite o CPF do medico: ");
+        ler_CPF(consulta.CPF_m);
+        getchar(); // Limpa o buffer do teclado
 
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  AGENDAR CONSULTA                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("                                                         \n");
-    printf("   ID:%s \n",consulta.id);
-    printf("   DATA:%s      HORA:%s \n",consulta.data,consulta.hora);
-    printf("   PACIENTE:   \n");
-    printf("   CPF:%s  IDADE:   \n",consulta.CPF_p);
-    printf("   SEXO:      TELEFONE:    \n");
-    printf("   EMAIL: \n");
-    printf("                                                         \n");
-    printf("                                                         \n");
-    printf("  MEDICO:    \n");
-    printf("  CPF:%s  \n",consulta.CPF_m);
-    printf("  ESPECIALIZACAO:  \n");
-    printf("                                                         \n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    getchar(); // Limpa o buffer do teclado
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("@@                                                         @@\n");
+        printf("@@                  AGENDAR CONSULTA                       @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("                                                         \n");
+        printf("   ID:%s \n",consulta.id);
+        printf("   DATA:%s      HORA:%s \n",consulta.data,consulta.hora);
+        printf("   PACIENTE:   \n");
+        printf("   CPF:%s  IDADE:   \n",consulta.CPF_p);
+        printf("   SEXO:      TELEFONE:    \n");
+        printf("   EMAIL: \n");
+        printf("                                                         \n");
+        printf("                                                         \n");
+        printf("  MEDICO:    \n");
+        printf("  CPF:%s  \n",consulta.CPF_m);
+        printf("  ESPECIALIZACAO:  \n");
+        printf("                                                         \n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        getchar(); // Limpa o buffer do teclado
+        printf("Os dados estao corretos? (S/N): ");
+        scanf("%c", &resp);
+        getchar();
+        
+    }while (resp != 'S' && resp != 's'); // Verifica se o usuário digitou 'S' ou 's'
 
-    grava_consulta(consulta); // Chama a função para gravar os dados da consulta
+        grava_consulta(consulta); // Chama a função para gravar os dados da consulta
 
-    printf("Consulta agendada com sucesso!\n");
-    delay(1);
+        printf("Consulta agendada com sucesso!\n");
+        delay(1);
 
 
 }
