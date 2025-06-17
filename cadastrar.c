@@ -240,12 +240,12 @@ void cadastrar_paciente (void) {
 
 void grava_paciente(Paciente paciente) {
     FILE *arq_paciente;
-    arq_paciente = fopen("pacientes.txt", "wt");
+    arq_paciente = fopen("pacientes.dat", "ab");
     if (arq_paciente == NULL) {
         printf("Erro ao abrir o arquivo!\n");
         exit(1);
     }
-    fprintf(arq_paciente, "%s;%s;%s;%s;%s;%s\n", paciente.nome, paciente.CPF, paciente.data_nascimento, paciente.sexo, paciente.contato, paciente.email);
+    fwrite(&paciente, sizeof(Paciente), 1, arq_paciente);
     fclose(arq_paciente);
 }
 
