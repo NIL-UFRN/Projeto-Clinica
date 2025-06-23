@@ -98,6 +98,8 @@ void cadastrar_medico (void) {
             printf("Digite a especializacao do medico: ");
             fgets(medico.especialidade, 20, stdin);
 
+            medico.estatos = 1; // Define o status do médico como ativo
+
             getchar(); // Limpa o buffer do teclado
 
             printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -194,6 +196,7 @@ void cadastrar_paciente (void) {
         if (paciente.email[tam - 1] == '\n') {
             paciente.email[tam - 1] = '\0'; // Remove o caractere de nova linha
         }
+        paciente.estatos = 1; // Define o status do paciente como ativo
         getchar(); // Limpa o buffer do teclado
 
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
@@ -275,6 +278,8 @@ void agendar_consulta (void) {
         printf("Digite o CPF do medico: ");
         ler_CPF(consulta.CPF_m);
         getchar(); // Limpa o buffer do teclado
+
+        consulta.estatos = 1; // Define o status da consulta como ativo
 
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
         printf("@@                                                         @@\n");

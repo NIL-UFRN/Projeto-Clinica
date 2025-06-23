@@ -73,7 +73,7 @@ void pesquisar_medico (void){
     if (CPF[tam - 1] == '\n') {
         CPF[tam - 1] = '\0'; // Remove o caractere de nova linha
     }
-    getchar();
+      getchar();
 
     arq_medico = fopen("medicos.dat", "rb");
     if (arq_medico == NULL) {

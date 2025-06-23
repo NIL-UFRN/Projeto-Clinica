@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h> //biblioteca para colorir o terminal
+#include <string.h>
 #include "deletar.h"
 #include "utio.h" //biblioteca para funcoes
 #include "estrutura.h" //biblioteca para estruturas
+#include "funcoes.h" //biblioteca para funcoes
 
 void modulo_deletar (void){
     char op;
@@ -64,16 +66,41 @@ char menu_deletar (void) {
 }
 
 void deletar_medico (void){
-    char nome[50] = "";
+    Medico medico;
     char CPF[15] = "";
-    char especializacao[20] = "";
-    char contato[15] = "";
+    int tam,achou;
+    FILE *arq_medico;
+
     system("color 0c");
     system("cls || clear");
 
     printf("Digite o CPF do medico que deseja deletar: ");
     fgets(CPF, 15, stdin);
     getchar();
+
+    tam = strlen(CPF);
+
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o caractere de nova linha
+    }
+    arq_medico = fopen("medicos.dat", "rb+");
+    if (arq_medico == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    achou = 0;
+    while (fread(&medico, sizeof(Medico), 1, arq_medico)) {
+        if (strcmp(medico.CPF, CPF) == 0) {
+            achou = 1;
+            break; // Encontrou o medico, sai do loop
+        }
+    }
+    if (!achou) {
+        printf("Medico nao encontrado.\n");
+        delay(2);
+        fclose(arq_medico);
+        return;
+    }
 
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -82,18 +109,32 @@ void deletar_medico (void){
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("                                                         \n");
     printf("                                                         \n");
-    printf("           NOME:%s\n",nome);
+    printf("           NOME:%s\n",medico.nome);
     printf("                                                        \n");
     printf("           CPF: ");
-    print_CPF(CPF);
+    print_CPF(medico.CPF);
     printf("                                                       \n");
-    printf("           CONTATO:%s \n",contato);  
+    printf("           CONTATO:%s \n",medico.contato);  
     printf("                                                        \n");
-    printf("           ESPECIALIZACAO:%s\n",especializacao);
+    printf("           ESPECIALIZACAO:%s\n",medico.especialidade);
     printf("                                                        \n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-
     getchar();
+
+    printf("Tem certeza que deseja deletar o medico? (S/N): ");
+    char resp;
+    scanf("%c", &resp);
+    getchar();
+    if (resp == 'S' || resp == 's') {
+        medico.estatos = 0; // Define o status do médico como inativo
+        fseek(arq_medico, -sizeof(Medico), SEEK_CUR); // Volta para a posicao correta
+        fwrite(&medico, sizeof(Medico), 1, arq_medico);
+        printf("Medico deletado com sucesso!\n");
+        fclose(arq_medico);
+        delay(1);
+    } else {
+        printf("Operacao cancelada.\n");
+    }
 
 }
 

@@ -4,3 +4,8 @@ void exibir_consulta (Consulta consulta);
 void grava_medico(Medico medico);
 void grava_paciente(Paciente paciente);
 void grava_consulta(Consulta consulta);
+void att_campo (void);
+void att_nome (void);
+void att_contato (void);
+void att_especializacao (void);
+void att_tudo (void);

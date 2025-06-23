@@ -1,5 +1,6 @@
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include "utio.h"
 # include "atualizar.h"
 # include "estrutura.h"
@@ -61,33 +62,10 @@ char menu_atualizar(void) {
 }
 
 void atualizar_medico (void) {
-    Medico medico;
-    
-    system ("color 09");
-    system("cls || clear");
-    printf("Digite o CPF do medico: ");
-    fgets(CPF, 15, stdin);
-    getchar();
-
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  ATUALIZAR MEDICO                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("                                                         \n");
-    printf("           NOME:%s\n",nome);
-    printf("                                                        \n");
-    printf("           CPF: ");
-    print_CPF(CPF);
-    printf("                                                       \n");
-    printf("           CONTATO:%s\n",contato);  
-    printf("                                                        \n");
-    printf("           ESPECIALIZACAO:%s\n",especializacao);
-    printf("                                                        \n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
-    getchar();
+    att_campo();
 }
+
+
 
 
 void atualizar_paciente (void){

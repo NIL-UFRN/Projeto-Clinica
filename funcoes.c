@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h> //biblioteca para colorir o terminal
 #include <string.h>
-#include "utio.h"
 #include "estrutura.h"
+#include "funcoes.h"
+#include "utio.h"
+
 
 void exibir_medico (Medico medico){
 
@@ -101,4 +103,278 @@ void grava_consulta(Consulta consulta) {
     }
     fwrite(&consulta, sizeof(Consulta), 1, arq_consulta);
     fclose(arq_consulta);
+}
+
+void att_campo (void){
+    char op;
+    do{
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("@@                                                         @@\n");
+        printf("@@            ATUALIZAR CAMPO MEDICO                       @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           1 -> NOME                                     @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           2 -> CONTATO                                  @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           3 -> ESPECIALIZACAO                           @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           4 -> TUDO                                     @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           0 -> VOLTAR                                   @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("Digite a opcao desejada: ");
+        scanf("%c", &op);
+        getchar(); // Limpa o buffer do teclado
+    
+        switch (op) {
+        case '1':
+            att_nome();
+            break;
+        case '2':
+            att_contato();
+            break;
+        case '3':
+            att_especializacao();
+            break;
+        case '4':
+            att_tudo();
+            break;
+        case '0':
+            return;
+        default:
+            printf("Opcao invalida\n");
+            delay(1);
+            printf("Digite a opcao desejada: ");
+            scanf("%c", &op);
+            break;
+        }
+
+    } while (op != '0');
+}
+
+
+void att_nome (void) {
+    Medico medico;
+    char CPF[15] = "";
+    int tam, achou;
+    FILE *arq_medico;
+
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o CPF do medico: ");
+    fgets(CPF, 15, stdin);
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    
+    arq_medico = fopen("medicos.dat", "rb+");
+    if (arq_medico == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    
+    achou = 0;
+    while (fread(&medico, sizeof(Medico), 1, arq_medico)) {
+        if (strcmp(medico.CPF, CPF) == 0) {
+            achou = 1;
+            break; // Encontrou o medico, sai do loop
+        }
+    }
+    
+    if (!achou) {
+        printf("Medico nao encontrado.\n");
+        delay(2);
+        fclose(arq_medico);
+        return;
+    }
+
+    printf("Digite o novo nome do medico: ");
+    fgets(medico.nome, sizeof(medico.nome), stdin);
+    tam = strlen(medico.nome);
+    if (medico.nome[tam - 1] == '\n') {
+        medico.nome[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    fseek(arq_medico, -sizeof(Medico), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&medico, sizeof(Medico), 1, arq_medico);
+    
+    fclose(arq_medico);
+    
+    printf("Nome atualizado com sucesso!\n");
+    delay(2);
+}
+
+void att_contato (void) {
+    Medico medico;
+    char CPF[15] = "";
+    int tam, achou;
+    FILE *arq_medico;
+
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o CPF do medico: ");
+    fgets(CPF, 15, stdin);
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    getchar();
+    
+    arq_medico = fopen("medicos.dat", "rb+");
+    if (arq_medico == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    
+    achou = 0;
+    while (fread(&medico, sizeof(Medico), 1, arq_medico)) {
+        if (strcmp(medico.CPF, CPF) == 0) {
+            achou = 1;
+            break; // Encontrou o medico, sai do loop
+        }
+    }
+    
+    if (!achou) {
+        printf("Medico nao encontrado.\n");
+        delay(2);
+        fclose(arq_medico);
+        return;
+    }
+
+    printf("Digite o novo contato do medico: ");
+    fgets(medico.contato, sizeof(medico.contato), stdin);
+    tam = strlen(medico.contato);
+    if (medico.contato[tam - 1] == '\n') {
+        medico.contato[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    fseek(arq_medico, -sizeof(Medico), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&medico, sizeof(Medico), 1, arq_medico);
+    
+    fclose(arq_medico);
+    
+    printf("Contato atualizado com sucesso!\n");
+    delay(1);
+}
+
+void att_especializacao (void) {
+    Medico medico;
+    char CPF[15] = "";
+    int tam, achou;
+    FILE *arq_medico;
+
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o CPF do medico: ");
+    fgets(CPF, 15, stdin);
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    getchar();
+    
+    arq_medico = fopen("medicos.dat", "rb+");
+    if (arq_medico == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    
+    achou = 0;
+    while (fread(&medico, sizeof(Medico), 1, arq_medico)) {
+        if (strcmp(medico.CPF, CPF) == 0) {
+            achou = 1;
+            break; // Encontrou o medico, sai do loop
+        }
+    }
+    
+    if (!achou) {
+        printf("Medico nao encontrado.\n");
+        delay(2);
+        fclose(arq_medico);
+        return;
+    }
+
+    printf("Digite a nova especializacao do medico: ");
+    fgets(medico.especialidade, sizeof(medico.especialidade), stdin);
+    tam = strlen(medico.especialidade);
+    if (medico.especialidade[tam - 1] == '\n') {
+        medico.especialidade[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    fseek(arq_medico, -sizeof(Medico), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&medico, sizeof(Medico), 1, arq_medico);
+    
+    fclose(arq_medico);
+    
+    printf("Especializacao atualizada com sucesso!\n");
+    delay(1);
+}
+
+void att_tudo (void) {
+    Medico medico;
+    char CPF[15] = "";
+    int tam, achou;
+    FILE *arq_medico;
+
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o CPF do medico: ");
+    fgets(CPF, 15, stdin);
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    getchar();
+    
+    arq_medico = fopen("medicos.dat", "rb+");
+    if (arq_medico == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    
+    achou = 0;
+    while (fread(&medico, sizeof(Medico), 1, arq_medico)) {
+        if (strcmp(medico.CPF, CPF) == 0) {
+            achou = 1;
+            break; // Encontrou o medico, sai do loop
+        }
+    }
+    
+    if (!achou) {
+        printf("Medico nao encontrado.\n");
+        delay(2);
+        fclose(arq_medico);
+        return;
+    }
+
+    printf("Digite o novo nome do medico: ");
+    fgets(medico.nome, sizeof(medico.nome), stdin);
+    tam = strlen(medico.nome);
+    if (medico.nome[tam - 1] == '\n') {
+        medico.nome[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    printf("Digite o novo contato do medico: ");
+    fgets(medico.contato, sizeof(medico.contato), stdin);
+    tam = strlen(medico.contato);
+    if (medico.contato[tam - 1] == '\n') {
+        medico.contato[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    printf("Digite a nova especializacao do medico: ");
+    fgets(medico.especialidade, sizeof(medico.especialidade), stdin);
+    tam = strlen(medico.especialidade);
+    if (medico.especialidade[tam - 1] == '\n') {
+        medico.especialidade[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    fseek(arq_medico, -sizeof(Medico), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&medico, sizeof(Medico), 1, arq_medico);
+
+    fclose(arq_medico);
+    printf("Todos os campos atualizados com sucesso!\n");
+    delay(1);
 }
