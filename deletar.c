@@ -102,24 +102,8 @@ void deletar_medico (void){
         return;
     }
 
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                    DELETAR MEDICO                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("                                                         \n");
-    printf("                                                         \n");
-    printf("           NOME:%s\n",medico.nome);
-    printf("                                                        \n");
-    printf("           CPF: ");
-    print_CPF(medico.CPF);
-    printf("                                                       \n");
-    printf("           CONTATO:%s \n",medico.contato);  
-    printf("                                                        \n");
-    printf("           ESPECIALIZACAO:%s\n",medico.especialidade);
-    printf("                                                        \n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    getchar();
+    exibir_medico(medico); // Exibe os dados do médico para confirmação
+
 
     printf("Tem certeza que deseja deletar o medico? (S/N): ");
     char resp;
@@ -139,33 +123,53 @@ void deletar_medico (void){
 }
 
 void deletar_paciente (void){
-    char nome[50] = "";
+    Paciente paciente;
     char CPF[15] = "";
-    char idade[3] = "";
-    char sexo[10] = "";
+    int tam, achou;
+    FILE *arq_paciente;
+
     system("color 0c");
     system("cls || clear");
     printf("Digite o CPF do paciente que deseja deletar: ");
     fgets(CPF, 15, stdin);
     getchar();
-
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                    DELETAR PACIENTE                     @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("                                                         \n");
-    printf("           NOME:%s    \n",nome);
-    printf("                                                         \n");
-    printf("           IDADE:%s   \n",idade);
-    printf("                                                         \n");
-    printf("           CPF:%s    \n",CPF);
-    printf("                                                         \n");
-    printf("           SEXO:%s    \n",sexo);
-    printf("                                                         \n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o caractere de nova linha
+    }
+    arq_paciente = fopen("pacientes.dat", "rb+");
+    if (arq_paciente == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    achou = 0;
+    while (fread(&paciente, sizeof(Paciente), 1, arq_paciente)) {
+        if (strcmp(paciente.CPF, CPF) == 0) {
+            achou = 1;
+            break; // Encontrou o paciente, sai do loop
+        }
+    }
+    if (!achou) {
+        printf("Paciente nao encontrado.\n");
+        delay(2);
+        fclose(arq_paciente);
+        return;
+    }
+    exibir_paciente(paciente);
+    printf("Tem certeza que deseja deletar o paciente? (S/N): ");
+    char resp;
+    scanf("%c", &resp);
     getchar();
+    if (resp == 'S' || resp == 's') {
+        paciente.estatos = 0; // Define o status do paciente como inativo
+        fseek(arq_paciente, -sizeof(Paciente), SEEK_CUR); // Volta para a posicao correta
+        fwrite(&paciente, sizeof(Paciente), 1, arq_paciente);
+        printf("Paciente deletado com sucesso!\n");
+        fclose(arq_paciente);
+        delay(1);
+    } else {
+        printf("Operacao cancelada.\n");
+    }
 
 }
 
