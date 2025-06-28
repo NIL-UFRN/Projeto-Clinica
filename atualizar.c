@@ -453,37 +453,223 @@ void att_tudo_paciente (void) {
 }
 
 void atualizar_agenda (void) {
+    char op;
+    do{
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("@@                                                         @@\n");
+        printf("@@            ATUALIZAR CAMPOS AGENDA                      @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           1 -> ATUALIZAR DATA                           @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           2 -> ATUALIZAR HORARIO                        @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           3 -> ATUALIZAR MEDICO                         @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           4 -> ATUALIZAR PACIENTE                       @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           0 -> VOLTAR                                   @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("Digite a opcao desejada: ");
+        scanf("%c", &op);
+        getchar(); // Limpa o buffer do teclado
+        switch (op) {
+            case '1':
+                att_data_agenda();
+                break;
+            case '2':
+                att_horario();
+                break;
+            case '3':
+                att_medico_agenda();
+                break;
+            case '4':
+                att_paciente_agenda();
+                break;
+            case '0':
+                return;
+            default:
+                printf("Opcao invalida\n");
+                delay(1);
+                break;
+        }
+    } while (op != '0');
+
+}
+
+void att_data_agenda (void) {
+    Consulta consulta;
     char id[11] = "";
-    char data[11] = "";
-    char paciente[50] = "";
-    char CPF[15] = "";
-    char idade[3] = "";
-    char sexo[10] = "";
-    char contato[15] = "";
-    char medico[50] = "";
-    char especializacao[20] = "";
-    system ("color 09"); 
+    int tam, achou;
+    FILE *arq_agenda;
+    system ("color 09");
     system("cls || clear");
-    printf("digite o ID da consulta: ");
+    printf("Digite o ID da consulta: ");
     fgets(id, 11, stdin);
-    getchar();
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                  ATUALIZAR AGENDA                       @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("                                                         \n");
-    printf("   ID:%s \n,",id);
-    printf("   DATA:%s \n",data);
-    printf("   PACIENTE:%s \n",paciente);
-    printf("   CPF:%s    IDADE:%s  \n",CPF,idade);
-    printf("   SEXO:%s    CONTATO:%s \n",sexo,contato);
-    printf("                                                         \n");
-    printf("                                                        \n");
-    printf("   MEDICO:%s \n",medico);
-    printf("   ESPECIALIZACAO:%s \n",especializacao);
-    printf("                                                         \n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
-    getchar();
+    tam = strlen(id);
+    if (id[tam - 1] == '\n') {
+        id[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    arq_agenda = fopen("consultas.dat", "rb+");
+    if (arq_agenda == NULL) {
+        printf("Erro ao abrir o arquivo de agenda.\n");
+        delay(2);
+        return;
+    }
+    achou = 0;
+    while (fread(&consulta, sizeof(Consulta), 1, arq_agenda) && !achou) {
+        if (strcmp(consulta.id, id) == 0) {
+            achou = 1;
+            break; // Encontrou a consulta, sai do loop
+        }
+    }
+    if (!achou) {
+        printf("Consulta nao encontrada.\n");
+        delay(2);
+        fclose(arq_agenda);
+        return;
+    }
+    printf("Digite a nova data da consulta (DD/MM/AAAA): ");
+    ler_data(consulta.data); // Chama a funcao para ler a data
+    fseek(arq_agenda, -sizeof(Consulta), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&consulta, sizeof(Consulta), 1, arq_agenda);
+    fclose(arq_agenda);
+    printf("Data da consulta atualizada com sucesso!\n");
+    delay(2);
+}
+void att_horario (void) {
+    Consulta consulta;
+    char id[11] = "";
+    int tam, achou;
+    FILE *arq_agenda;
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o ID da consulta: ");
+    fgets(id, 11, stdin);
+    tam = strlen(id);
+    if (id[tam - 1] == '\n') {
+        id[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    arq_agenda = fopen("consultas.dat", "rb+");
+    if (arq_agenda == NULL) {
+        printf("Erro ao abrir o arquivo de agenda.\n");
+        delay(2);
+        return;
+    }
+    achou = 0;
+    while (fread(&consulta, sizeof(Consulta), 1, arq_agenda) && !achou) {
+        if (strcmp(consulta.id, id) == 0) {
+            achou = 1;
+            break; // Encontrou a consulta, sai do loop
+        }
+    }
+    if (!achou) {
+        printf("Consulta nao encontrada.\n");
+        delay(2);
+        fclose(arq_agenda);
+        return;
+    }
+    printf("Digite o novo horario da consulta (HH:MM): ");
+    fgets(consulta.hora, sizeof(consulta.hora), stdin);
+    tam = strlen(consulta.hora);
+    if (consulta.hora[tam - 1] == '\n') {
+        consulta.hora[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    fseek(arq_agenda, -sizeof(Consulta), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&consulta, sizeof(Consulta), 1, arq_agenda);
+    fclose(arq_agenda);
+    printf("Horario da consulta atualizado com sucesso!\n");
+    delay(2);
+}
+
+void att_medico_agenda (void) {
+    Consulta consulta;
+    char id[11] = "";
+    int tam, achou;
+    FILE *arq_agenda;
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o ID da consulta: ");
+    fgets(id, 11, stdin);
+    tam = strlen(id);
+    if (id[tam - 1] == '\n') {
+        id[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    arq_agenda = fopen("consultas.dat", "rb+");
+    if (arq_agenda == NULL) {
+        printf("Erro ao abrir o arquivo de agenda.\n");
+        delay(2);
+        return;
+    }
+    achou = 0;
+    while (fread(&consulta, sizeof(Consulta), 1, arq_agenda) && !achou) {
+        if (strcmp(consulta.id, id) == 0) {
+            achou = 1;
+            break; // Encontrou a consulta, sai do loop
+        }
+    }
+    if (!achou) {
+        printf("Consulta nao encontrada.\n");
+        delay(2);
+        fclose(arq_agenda);
+        return;
+    }
+    printf("Digite o novo CPF do medico: ");
+    fgets(consulta.CPF_m, sizeof(consulta.CPF_m), stdin);
+    tam = strlen(consulta.CPF_m);
+    if (consulta.CPF_m[tam - 1] == '\n') {
+        consulta.CPF_m[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    fseek(arq_agenda, -sizeof(Consulta), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&consulta, sizeof(Consulta), 1, arq_agenda);
+    fclose(arq_agenda);
+    printf("CPF do medico atualizado com sucesso!\n");
+    delay(2);
+}
+
+void att_paciente_agenda (void) {
+    Consulta consulta;
+    char id[11] = "";
+    int tam, achou;
+    FILE *arq_agenda;
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o ID da consulta: ");
+    fgets(id, 11, stdin);
+    tam = strlen(id);
+    if (id[tam - 1] == '\n') {
+        id[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    arq_agenda = fopen("consultas.dat", "rb+");
+    if (arq_agenda == NULL) {
+        printf("Erro ao abrir o arquivo de agenda.\n");
+        delay(2);
+        return;
+    }
+    achou = 0;
+    while (fread(&consulta, sizeof(Consulta), 1, arq_agenda) && !achou) {
+        if (strcmp(consulta.id, id) == 0) {
+            achou = 1;
+            break; // Encontrou a consulta, sai do loop
+        }
+    }
+    if (!achou) {
+        printf("Consulta nao encontrada.\n");
+        delay(2);
+        fclose(arq_agenda);
+        return;
+    }
+    printf("Digite o novo CPF do paciente: ");
+    fgets(consulta.CPF_p, sizeof(consulta.CPF_p), stdin);
+    tam = strlen(consulta.CPF_p);
+    if (consulta.CPF_p[tam - 1] == '\n') {
+        consulta.CPF_p[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    fseek(arq_agenda, -sizeof(Consulta), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&consulta, sizeof(Consulta), 1, arq_agenda);
+    fclose(arq_agenda);
+    printf("CPF do paciente atualizado com sucesso!\n");
+    delay(2);
 }

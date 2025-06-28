@@ -10,3 +10,7 @@ void att_email_paciente (void);
 void att_data_nascimento_paciente (void);
 void att_sexo_paciente (void);
 void att_tudo_paciente (void);
+void att_data_agenda (void);
+void att_horario (void);
+void att_medico_agenda (void);
+void att_paciente_agenda (void);
