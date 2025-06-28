@@ -122,6 +122,7 @@ void relatorio_consulta(void) {
     arq_consulta = fopen("consultas.dat", "rb");
     if (arq_consulta == NULL) {
         printf("Erro ao abrir o arquivo!\n");
+        delay(1);
         exit(1);
     }
 
@@ -129,6 +130,7 @@ void relatorio_consulta(void) {
         if (consulta.estatos == 1) { // Verifica se a consulta esta ativa
             system("color 09");
             exibir_consulta(consulta);
+            getchar(); // Espera o usuario pressionar ENTER para continuar
         }
     }
 
