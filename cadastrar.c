@@ -103,7 +103,7 @@ void cadastrar_medico (void) {
             getchar(); // Limpa o buffer do teclado
 
             exibir_medico(medico); // Exibe os dados do médico para confirmação
-            
+
             printf("Os dados estao corretos? (S/N): ");
             scanf("%c", &resp);
             getchar();
@@ -185,27 +185,8 @@ void cadastrar_paciente (void) {
         paciente.estatos = 1; // Define o status do paciente como ativo
         getchar(); // Limpa o buffer do teclado
 
-        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-        printf("@@                                                         @@\n");
-        printf("@@                  CADASTRAR PACIENTE                     @@\n");
-        printf("@@                                                         @@\n");
-        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-        printf("                                                         \n");
-        printf("           NOME:%s\n",paciente.nome);
-        printf("                                                        \n");
-        printf("           IDADE:%s\n",paciente.data_nascimento);
-        printf("                                                        \n");
-        printf("           CPF:");
-        print_CPF(paciente.CPF);
-        printf("                                                        \n");
-        printf("                                                        \n");
-        printf("           CONTATO:%s\n",paciente.contato);
-        printf("                                                        \n");
-        printf("           EMAIL:%s\n",paciente.email);
-        printf("                                                        \n");
-        printf("           SEXO:%s\n",paciente.sexo);
-        printf("                                                        \n");
-        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        exibir_paciente(paciente); // Exibe os dados do paciente para confirmação
+        
         printf("Os dados estao corretos? (S/N): ");
         scanf("%c", &resp); 
         getchar();
