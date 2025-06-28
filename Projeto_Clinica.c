@@ -35,7 +35,7 @@ int main (void) {
             modulo_deletar();
             break;
         case '5':
-            menu_relatorio();
+            modulo_relatorio();
             break;
         case '6':
             informacoes();
