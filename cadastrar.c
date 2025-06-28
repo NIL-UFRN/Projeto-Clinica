@@ -186,7 +186,7 @@ void cadastrar_paciente (void) {
         getchar(); // Limpa o buffer do teclado
 
         exibir_paciente(paciente); // Exibe os dados do paciente para confirmação
-        
+
         printf("Os dados estao corretos? (S/N): ");
         scanf("%c", &resp); 
         getchar();
@@ -248,26 +248,8 @@ void agendar_consulta (void) {
 
         consulta.estatos = 1; // Define o status da consulta como ativo
 
-        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-        printf("@@                                                         @@\n");
-        printf("@@                  AGENDAR CONSULTA                       @@\n");
-        printf("@@                                                         @@\n");
-        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-        printf("                                                         \n");
-        printf("   ID:%s \n",consulta.id);
-        printf("   DATA:%s      HORA:%s \n",consulta.data,consulta.hora);
-        printf("   PACIENTE:   \n");
-        printf("   CPF:%s  IDADE:   \n",consulta.CPF_p);
-        printf("   SEXO:      TELEFONE:    \n");
-        printf("   EMAIL: \n");
-        printf("                                                         \n");
-        printf("                                                         \n");
-        printf("  MEDICO:    \n");
-        printf("  CPF:%s  \n",consulta.CPF_m);
-        printf("  ESPECIALIZACAO:  \n");
-        printf("                                                         \n");
-        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-        getchar(); // Limpa o buffer do teclado
+        exibir_consulta(consulta); // Exibe os dados da consulta para confirmação
+
         printf("Os dados estao corretos? (S/N): ");
         scanf("%c", &resp);
         getchar();
