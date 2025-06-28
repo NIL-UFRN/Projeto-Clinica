@@ -58,6 +58,7 @@ char menu_atualizar(void) {
     printf("Escolha a opcao desejada: ");
     scanf("%c", &op);
     getchar();
+    fflush(stdin); // Limpa o buffer de entrada
     return op;  
 }
 
@@ -95,6 +96,8 @@ void atualizar_paciente (void){
         printf("Digite a opcao desejada: ");
         scanf("%c", &op);
         getchar(); // Limpa o buffer do teclado
+        fflush(stdin); // Limpa o buffer de entrada
+
         switch (op) {
             case '1':
                 att_nome_paciente();

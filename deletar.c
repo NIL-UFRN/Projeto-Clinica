@@ -41,7 +41,7 @@ void modulo_deletar (void){
 
 char menu_deletar (void) {
     char op;
-    system("color 0a");
+    system("color 0c");
     system("cls || clear");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
@@ -76,10 +76,8 @@ void deletar_medico (void){
 
     printf("Digite o CPF do medico que deseja deletar: ");
     fgets(CPF, 15, stdin);
-    getchar();
 
     tam = strlen(CPF);
-
     if (CPF[tam - 1] == '\n') {
         CPF[tam - 1] = '\0'; // Remove o caractere de nova linha
     }
@@ -132,7 +130,6 @@ void deletar_paciente (void){
     system("cls || clear");
     printf("Digite o CPF do paciente que deseja deletar: ");
     fgets(CPF, 15, stdin);
-    getchar();
     tam = strlen(CPF);
     if (CPF[tam - 1] == '\n') {
         CPF[tam - 1] = '\0'; // Remove o caractere de nova linha
@@ -182,13 +179,12 @@ void deletar_consulta (void){
     system("cls || clear");
     printf("Digite o ID da consulta que deseja deletar: ");
     fgets(id, 11, stdin);
-    getchar();
 
     tam = strlen(id);
     if (id[tam - 1] == '\n') {
         id[tam - 1] = '\0'; // Remove o caractere de nova linha
     }
-    FILE *arq_agenda = fopen("agenda.dat", "rb+");
+    FILE *arq_agenda = fopen("consultas.dat", "rb+");
     if (arq_agenda == NULL) {
         printf("Erro ao abrir o arquivo!\n");
         exit(1);

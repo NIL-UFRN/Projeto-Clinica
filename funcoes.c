@@ -125,6 +125,8 @@ void att_campo (void){
         printf("Digite a opcao desejada: ");
         scanf("%c", &op);
         getchar(); // Limpa o buffer do teclado
+        fflush(stdin); // Limpa o buffer de entrada
+        
     
         switch (op) {
         case '1':
