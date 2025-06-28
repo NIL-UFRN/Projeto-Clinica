@@ -10,8 +10,8 @@ void modulo_pesquisar (void){
     char op;
     do{
         op=menu_pesquisar();
-        switch (op)
-        {case '1':
+        switch (op){
+            case '1':
             pesquisar_medico();
             break;
         case '2':
@@ -195,8 +195,7 @@ void pesquisar_agenda (void){
     while (fread(&consulta, sizeof(Consulta), 1, arq_agenda) && !achou) {
         if (strcmp(consulta.id, id) == 0) {
             exibir_consulta(consulta);
-            printf("Pressione ENTER para continuar...\n");
-            getchar(); // Limpa o buffer do teclado
+            getchar(); // Espera o usuário pressionar ENTER
             achou = 1;
         }
     }
