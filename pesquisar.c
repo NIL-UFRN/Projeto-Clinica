@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "utio.h"
 #include "pesquisar.h"
 #include "estrutura.h"
 #include "funcoes.h"
-#include <string.h>
 
 void modulo_pesquisar (void){
     char op;
@@ -82,6 +82,9 @@ void pesquisar_medico (void){
     }
     achou = 0;
     while (fread(&medico, sizeof(Medico), 1, arq_medico)&&(!achou)) {
+        if ( medico.estatos == 0) {
+            continue; // Pula medicos inativos
+        }
         printf("CPF: |%s|\n", medico.CPF);
         printf("CPF pesquisado: |%s|\n", CPF);
         if (strcmp(medico.CPF, CPF) == 0) {
