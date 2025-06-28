@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h> //biblioteca para colorir o terminal
+#include <string.h>
 #include "cadastrar.h"
 #include "atualizar.h"
 #include "pesquisar.h"
 #include "deletar.h"
 #include "utio.h" //biblioteca para funcoes
+#include "estrutura.h" //biblioteca para estruturas
+#include "relatorios.h"
+
 
 //prototipos das funcoes
 char menu_prim (void);
@@ -30,8 +34,10 @@ int main (void) {
         case '4':
             modulo_deletar();
             break;
-
         case '5':
+            menu_relatorio();
+            break;
+        case '6':
             informacoes();
             break;
 
@@ -71,7 +77,9 @@ char menu_prim (void) {
     printf("@@                                                         @@\n");
     printf("@@           4 -> DELETAR                                  @@\n");
     printf("@@                                                         @@\n");
-    printf("@@           5 -> INFORMACOES                              @@\n");
+    printf("@@           5 -> RELATORIOS                               @@\n");  
+    printf("@@                                                         @@\n");
+    printf("@@           6 -> INFORMACOES                              @@\n");
     printf("@@                                                         @@\n");
     printf("@@           0 -> SAIR                                     @@\n");
     printf("@@                                                         @@\n");
