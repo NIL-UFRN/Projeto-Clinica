@@ -130,7 +130,6 @@ void relatorio_consulta(void) {
         if (consulta.estatos == 1) { // Verifica se a consulta esta ativa
             system("color 09");
             exibir_consulta(consulta);
-            getchar(); // Espera o usuario pressionar ENTER para continuar
         }
     }
 
