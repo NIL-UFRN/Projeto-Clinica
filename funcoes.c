@@ -23,9 +23,7 @@ void exibir_medico (Medico medico){
     printf("                                                        \n");
     printf("           ESPECIALIZACAO:%s\n",medico.especialidade);
     printf("                                                        \n");
-    printf(" ESTATOS:%s\n", medico.estatos ? "Ativo" : "Inativo");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    getchar();
 }
 
 void exibir_paciente (Paciente paciente){

@@ -102,22 +102,8 @@ void cadastrar_medico (void) {
 
             getchar(); // Limpa o buffer do teclado
 
-            printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-            printf("@@                                                         @@\n");
-            printf("@@                  CADASTRAR MEDICO                       @@\n");
-            printf("@@                                                         @@\n");
-            printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-            printf("                                                         \n");
-            printf("           NOME:%s\n",medico.nome);
-            printf("                                                        \n");
-            printf("           CPF: ");
-            print_CPF(medico.CPF);
-            printf("                                                       \n");
-            printf("           CONTATO:%s\n",medico.contato);  
-            printf("                                                        \n");
-            printf("           ESPECIALIZACAO:%s\n",medico.especialidade);
-            printf("                                                        \n");
-            printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+            exibir_medico(medico); // Exibe os dados do médico para confirmação
+            
             printf("Os dados estao corretos? (S/N): ");
             scanf("%c", &resp);
             getchar();
