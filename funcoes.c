@@ -41,7 +41,6 @@ void exibir_paciente (Paciente paciente){
     printf("           CPF: ");
     print_CPF(paciente.CPF);
     printf("                                                        \n");
-    printf("                                                        \n");
     printf("           CONTATO:%s\n",paciente.contato);
     printf("                                                        \n");
     printf("           EMAIL:%s\n",paciente.email);

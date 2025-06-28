@@ -69,7 +69,7 @@ void atualizar_medico (void) {
 
 
 void atualizar_paciente (void){
-    char op
+    char op;
     do{
         printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
         printf("@@                                                         @@\n");
@@ -136,11 +136,11 @@ void att_nome_paciente (void) {
     system("cls || clear");
     printf("Digite o CPF do paciente: ");
     fgets(CPF, 15, stdin);
+
     tam = strlen(CPF);
     if (CPF[tam - 1] == '\n') {
         CPF[tam - 1] = '\0'; // Remove o '\n' do final da string
     }
-    getchar();
 
     arq_paciente = fopen("pacientes.dat", "rb+");
     if (arq_paciente == NULL) {
@@ -193,7 +193,6 @@ void att_contato_paciente (void) {
     if (CPF[tam - 1] == '\n') {
         CPF[tam - 1] = '\0'; // Remove o '\n' do final da string
     }
-    getchar();
 
     arq_paciente = fopen("pacientes.dat", "rb+");
     if (arq_paciente == NULL) {
@@ -230,6 +229,227 @@ void att_contato_paciente (void) {
 
     printf("Contato atualizado com sucesso!\n");
     delay(2);
+}
+
+void att_email_paciente (void) {
+    Paciente paciente;
+    char CPF[15] = "";
+    int tam, achou;
+    FILE *arq_paciente;
+
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o CPF do paciente: ");
+    fgets(CPF, 15, stdin);
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    arq_paciente = fopen("pacientes.dat", "rb+");
+    if (arq_paciente == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+
+    achou = 0;
+    while (fread(&paciente, sizeof(Paciente), 1, arq_paciente)) {
+        if (strcmp(paciente.CPF, CPF) == 0) {
+            achou = 1;
+            break; // Encontrou o paciente, sai do loop
+        }
+    }
+
+    if (!achou) {
+        printf("Paciente nao encontrado.\n");
+        delay(2);
+        fclose(arq_paciente);
+        return;
+    }
+
+    printf("Digite o novo email do paciente: ");
+    fgets(paciente.email, sizeof(paciente.email), stdin);
+    tam = strlen(paciente.email);
+    if (paciente.email[tam - 1] == '\n') {
+        paciente.email[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    fseek(arq_paciente, -sizeof(Paciente), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&paciente, sizeof(Paciente), 1, arq_paciente);
+
+    fclose(arq_paciente);
+
+    printf("Email atualizado com sucesso!\n");
+    delay(2);
+}
+
+void att_data_nascimento_paciente (void) {
+    Paciente paciente;
+    char CPF[15] = "";
+    int tam, achou;
+    FILE *arq_paciente;
+
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o CPF do paciente: ");
+    fgets(CPF, 15, stdin);
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    arq_paciente = fopen("pacientes.dat", "rb+");
+    if (arq_paciente == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+
+    achou = 0;
+    while (fread(&paciente, sizeof(Paciente), 1, arq_paciente)) {
+        if (strcmp(paciente.CPF, CPF) == 0) {
+            achou = 1;
+            break; // Encontrou o paciente, sai do loop
+        }
+    }
+
+    if (!achou) {
+        printf("Paciente nao encontrado.\n");
+        delay(2);
+        fclose(arq_paciente);
+        return;
+    }
+
+    printf("Digite a nova data de nascimento do paciente (DD/MM/AAAA): ");
+    ler_data(paciente.data_nascimento); // Chama a funcao para ler a data
+
+    fseek(arq_paciente, -sizeof(Paciente), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&paciente, sizeof(Paciente), 1, arq_paciente);
+
+    fclose(arq_paciente);
+
+    printf("Data de nascimento atualizada com sucesso!\n");
+    delay(2);
+}
+
+void att_sexo_paciente (void) {
+    Paciente paciente;
+    char CPF[15] = "";
+    int tam, achou;
+    FILE *arq_paciente;
+
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o CPF do paciente: ");
+    fgets(CPF, 15, stdin);
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    arq_paciente = fopen("pacientes.dat", "rb+");
+    if (arq_paciente == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+
+    achou = 0;
+    while (fread(&paciente, sizeof(Paciente), 1, arq_paciente)) {
+        if (strcmp(paciente.CPF, CPF) == 0) {
+            achou = 1;
+            break; // Encontrou o paciente, sai do loop
+        }
+    }
+
+    if (!achou) {
+        printf("Paciente nao encontrado.\n");
+        delay(2);
+        fclose(arq_paciente);
+        return;
+    }
+
+    printf("Digite o novo sexo do paciente: ");
+    fgets(paciente.sexo, sizeof(paciente.sexo), stdin);
+    tam = strlen(paciente.sexo);
+    if (paciente.sexo[tam - 1] == '\n') {
+        paciente.sexo[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    fseek(arq_paciente, -sizeof(Paciente), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&paciente, sizeof(Paciente), 1, arq_paciente);
+
+    fclose(arq_paciente);
+
+    printf("Sexo atualizado com sucesso!\n");
+    delay(2);
+}
+
+void att_tudo_paciente (void) {
+    Paciente paciente;
+    char CPF[15] = "";
+    int tam, achou;
+    FILE *arq_paciente;
+
+    system ("color 09");
+    system("cls || clear");
+    printf("Digite o CPF do paciente: ");
+    fgets(CPF, 15, stdin);
+    tam = strlen(CPF);
+    if (CPF[tam - 1] == '\n') {
+        CPF[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+
+    arq_paciente = fopen("pacientes.dat", "rb+");
+    if (arq_paciente == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+
+    achou = 0;
+    while (fread(&paciente, sizeof(Paciente), 1, arq_paciente)) {
+        if (strcmp(paciente.CPF, CPF) == 0) {
+            achou = 1;
+            break; // Encontrou o paciente, sai do loop
+        }
+    }
+
+    if (!achou) {
+        printf("Paciente nao encontrado.\n");
+        delay(2);
+        fclose(arq_paciente);
+        return;
+    }
+    printf("Digite o novo nome do paciente: ");
+    fgets(paciente.nome, sizeof(paciente.nome), stdin);
+    tam = strlen(paciente.nome);
+    if (paciente.nome[tam - 1] == '\n') {
+        paciente.nome[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    printf("Digite o novo contato do paciente: ");
+    fgets(paciente.contato, sizeof(paciente.contato), stdin);
+    tam = strlen(paciente.contato);
+    if (paciente.contato[tam - 1] == '\n') {
+        paciente.contato[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    printf("Digite o novo email do paciente: ");
+    fgets(paciente.email, sizeof(paciente.email), stdin);
+    tam = strlen(paciente.email);
+    if (paciente.email[tam - 1] == '\n') {
+        paciente.email[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    printf("Digite a nova data de nascimento do paciente (DD/MM/AAAA): ");
+    ler_data(paciente.data_nascimento); // Chama a funcao para ler a data
+
+    printf("Digite o novo sexo do paciente: ");
+    fgets(paciente.sexo, sizeof(paciente.sexo), stdin);
+    tam = strlen(paciente.sexo);
+    if (paciente.sexo[tam - 1] == '\n') {
+        paciente.sexo[tam - 1] = '\0'; // Remove o '\n' do final da string
+    }
+    fseek(arq_paciente, -sizeof(Paciente), SEEK_CUR); // Volta para a posicao correta
+    fwrite(&paciente, sizeof(Paciente), 1, arq_paciente);
+    fclose(arq_paciente);
+    printf("Todos os campos do paciente foram atualizados com sucesso!\n");
+    delay(2);   
 }
 
 void atualizar_agenda (void) {
