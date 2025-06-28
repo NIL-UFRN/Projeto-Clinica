@@ -36,8 +36,8 @@ void modulo_pesquisar (void){
 
 char menu_pesquisar (void) {
     char op;
-    system ("color 0a");
     system("cls || clear");
+    system ("color 0e");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
     printf("@@                    TELA DE PESQUISA                     @@\n");
@@ -144,11 +144,11 @@ void pesquisar_paciente (void){
     system("cls || clear");
     printf("Coloque o CPF do paciente: ");
     fgets(CPF, 15, stdin);
+    getchar();
     tam = strlen(CPF);
     if (CPF[tam - 1] == '\n') {
         CPF[tam - 1] = '\0'; // Remove o caractere de nova linha
     }
-    getchar();
 
     arq_paciente = fopen("pacientes.dat", "rb");
     if (arq_paciente == NULL) {
@@ -172,24 +172,30 @@ void pesquisar_paciente (void){
 
 void pesquisar_agenda (void){
     Consulta consulta;
-    char data[11] = "";
+    char id[11] = "";
+    int tam, achou;
     FILE *arq_agenda;
     system ("color 0e");
     system("cls || clear");
 
-    printf("digite a data que deseja pesquisar: ");
-    fgets(data, 11, stdin);
-    getchar();
-
-    arq_agenda = fopen("agenda.dat", "rb");
+    printf("digite o ID da consulta que deseja pesquisar: ");
+    fgets(id, 11, stdin);
+    tam= strlen(id);
+    if (id[tam - 1] == '\n') {
+        id[tam - 1] = '\0'; // Remove o caractere de nova linha
+    }
+    
+    arq_agenda = fopen("consultas.dat", "rb");
     if (arq_agenda == NULL) {
         printf("Erro ao abrir o arquivo!\n");
         exit(1);
     }
-    int achou = 0;
+    achou = 0;
     while (fread(&consulta, sizeof(Consulta), 1, arq_agenda) && !achou) {
-        if (strcmp(consulta.data, data) == 0) {
+        if (strcmp(consulta.id, id) == 0) {
             exibir_consulta(consulta);
+            printf("Pressione ENTER para continuar...\n");
+            getchar(); // Limpa o buffer do teclado
             achou = 1;
         }
     }
