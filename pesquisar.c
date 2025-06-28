@@ -73,7 +73,6 @@ void pesquisar_medico (void){
     if (CPF[tam - 1] == '\n') {
         CPF[tam - 1] = '\0'; // Remove o caractere de nova linha
     }
-      getchar();
 
     arq_medico = fopen("medicos.dat", "rb");
     if (arq_medico == NULL) {
@@ -98,7 +97,8 @@ void pesquisar_medico (void){
         delay(2);
     }
     fclose(arq_medico);
-    getchar(); // Limpa o buffer do teclado
+    printf("Pressione ENTER para continuar...\n");
+    getchar(); 
 }
 
 // void pesquisar_medico (void){
@@ -144,7 +144,6 @@ void pesquisar_paciente (void){
     system("cls || clear");
     printf("Coloque o CPF do paciente: ");
     fgets(CPF, 15, stdin);
-    getchar();
     tam = strlen(CPF);
     if (CPF[tam - 1] == '\n') {
         CPF[tam - 1] = '\0'; // Remove o caractere de nova linha
@@ -167,6 +166,8 @@ void pesquisar_paciente (void){
         delay(2);
     }
     fclose(arq_paciente);
+    printf("Pressione ENTER para continuar...\n");
+    getchar();
 }
 
 
@@ -204,4 +205,6 @@ void pesquisar_agenda (void){
         delay(2);
     }
     fclose(arq_agenda);
+    printf("Pressione ENTER para continuar...\n");
+    getchar();
 }
