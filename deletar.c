@@ -174,39 +174,56 @@ void deletar_paciente (void){
 }
 
 void deletar_consulta (void){
+    Consulta consulta;
     char id[11] = "";
-    char data[11] = "";
-    char paciente[50] = "";
-    char CPF[15] = "";
-    char idade[3] = "";
-    char sexo[10] = "";
-    char contato[15] = "";
-    char medico[50] = "";
-    char especializacao[20] = "";
+    int tam, achou;
+
     system("color 0c");
     system("cls || clear");
-    printf("Qual o CPF do paciente que deseja cancelar a Consulta? ");
-    fgets(CPF, 15, stdin);
+    printf("Digite o ID da consulta que deseja deletar: ");
+    fgets(id, 11, stdin);
     getchar();
 
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("@@                                                         @@\n");
-    printf("@@                   CANCELAR CONSULTA                     @@\n");
-    printf("@@                                                         @@\n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("                                                         \n");
-    printf("   ID:%s \n",id);
-    printf("   DATA:%s \n",data);
-    printf("   PACIENTE:%s \n",paciente);
-    printf("   CPF:%s    IDADE:%s  \n",CPF,idade);
-    printf("   SEXO:%s    CONTATO:%s \n",sexo,contato);
-    printf("                                                         \n");
-    printf("                                                        \n");
-    printf("   MEDICO:%s \n",medico);
-    printf("   ESPECIALIZACAO:%s \n",especializacao);
-    printf("                                                         \n");
-    printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-    printf("Precione a tecla ENTER para continuar...");
+    tam = strlen(id);
+    if (id[tam - 1] == '\n') {
+        id[tam - 1] = '\0'; // Remove o caractere de nova linha
+    }
+    FILE *arq_agenda = fopen("agenda.dat", "rb+");
+    if (arq_agenda == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    achou = 0;
+    while (fread(&consulta, sizeof(Consulta), 1, arq_agenda
+)) {
+        if (strcmp(consulta.id, id) == 0) {
+            achou = 1;
+            break; // Encontrou a consulta, sai do loop
+        }
+    }
+    if (!achou) {
+        printf("Consulta nao encontrada.\n");
+        delay(2);
+        fclose(arq_agenda);
+        return;
+    }
+    exibir_consulta(consulta); // Exibe os dados da consulta para confirmação
+    printf("Tem certeza que deseja deletar a consulta? (S/N): ");
+    char resp;
+    scanf("%c", &resp);
     getchar();
+    if (resp == 'S' || resp == 's') {
+        consulta.estatos = 0; // Define o status da consulta como inativa
+        fseek(arq_agenda, -sizeof(Consulta), SEEK_CUR); // Volta para a posicao correta
+        fwrite(&consulta, sizeof(Consulta), 1, arq_agenda);
+        printf("Consulta deletada com sucesso!\n");
+        fclose(arq_agenda);
+        delay(1);
+    } else {
+        printf("Operacao cancelada.\n");
+    }   
+
+
+
 
 }
