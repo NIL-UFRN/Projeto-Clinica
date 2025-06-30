@@ -100,7 +100,6 @@ void cadastrar_medico (void) {
 
             medico.estatos = 1; // Define o status do médico como ativo
 
-            getchar(); // Limpa o buffer do teclado
 
             exibir_medico(medico); // Exibe os dados do médico para confirmação
 
@@ -183,7 +182,6 @@ void cadastrar_paciente (void) {
             paciente.email[tam - 1] = '\0'; // Remove o caractere de nova linha
         }
         paciente.estatos = 1; // Define o status do paciente como ativo
-        getchar(); // Limpa o buffer do teclado
 
         exibir_paciente(paciente); // Exibe os dados do paciente para confirmação
 
