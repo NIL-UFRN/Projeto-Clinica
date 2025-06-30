@@ -237,7 +237,6 @@ void agendar_consulta (void) {
         if (consulta.id[tam - 1] == '\n') {
             consulta.id[tam - 1] = '\0'; // Remove o caractere de nova linha
         }
-        getchar(); // Limpa o buffer do teclado
         printf("Digite o CPF do paciente: ");
         ler_CPF(consulta.CPF_p);
         printf("Digite o CPF do medico: ");
