@@ -63,8 +63,55 @@ char menu_relatorio(void) {
     return op;
 }
 
+void relatorio_medico (void){
+char op;
+    do{
 
-void relatorio_medico(void) {
+        system("color 09");
+        system("cls || clear");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("@@                                                         @@\n");
+        printf("@@                    RELATORIO DE MEDICOS                 @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           1 -> TODOS OS MEDICOS                         @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           2 -> ORDEM ALFABETICA                         @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           3 -> POR ESPECIALIDADE                        @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@           0 -> VOLTAR                                   @@\n");
+        printf("@@                                                         @@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("Digite a opcao desejada: ");
+        scanf("%c", &op);
+        getchar(); // Limpa o buffer do teclado
+        fflush(stdin); // Limpa o buffer de entrada
+
+        switch (op) {
+            case '1':
+                relatorio_todos_medico();
+                break;
+            case '2':
+                relatorio_medico_ordem_alfabetica();
+                break;
+            case '3':
+                relatorio_medico_especialidade();
+                break;
+            case '0':
+                return;
+            default:
+                printf("Opcao invalida\n");
+                delay(1);
+                break;
+        }
+
+    } while (op != '0');
+    system("cls || clear");
+}
+
+void relatorio_todos_medico(void) {
     Medico medico;
     FILE *arq_medico;
 
@@ -81,6 +128,79 @@ void relatorio_medico(void) {
             system("color 09");
             exibir_medico(medico);
 
+        }
+    }
+
+    fclose(arq_medico);
+    printf("Pressione ENTER para continuar...\n");
+    getchar();
+}
+
+void relatorio_medico_ordem_alfabetica(void) {
+    Medico medico;
+    FILE *arq_medico;
+
+    system("color 09");
+    system("cls || clear");
+    arq_medico = fopen("medicos.dat", "rb");
+    if (arq_medico == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+    // Cria um vetor para armazenar os médicos
+    Medico medicos[100];
+    int count = 0;
+    // Lê os médicos do arquivo e armazena no vetor
+    while (fread(&medico, sizeof(Medico), 1, arq_medico)) {
+        if (medico.estatos == 1) { // Verifica se o medico esta ativo
+            medicos[count++] = medico; // Armazena o médico no vetor
+        }
+    }
+
+    // Ordena os médicos por nome
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = i + 1; j < count; j++) {
+            if (strcmp(medicos[i].nome, medicos[j].nome) > 0) {
+                Medico temp = medicos[i];
+                medicos[i] = medicos[j];
+                medicos[j] = temp;
+            }
+        }
+    }
+
+    // Exibe os médicos ordenados
+    for (int i = 0; i < count; i++) {
+        system("color 09");
+        exibir_medico(medicos[i]);
+    }
+
+    fclose(arq_medico);
+    printf("Pressione ENTER para continuar...\n");
+    getchar();
+}
+
+void relatorio_medico_especialidade(void) {
+    Medico medico;
+    FILE *arq_medico;
+    char especialidade[50];
+
+    printf("Digite a especialidade desejada: ");
+    fgets(especialidade, sizeof(especialidade), stdin);
+    especialidade[strcspn(especialidade, "\n")] = 0; // Remove a nova linha
+
+    system("color 09");
+    system("cls || clear");
+    arq_medico = fopen("medicos.dat", "rb");
+    if (arq_medico == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        exit(1);
+    }
+
+    
+    while (fread(&medico, sizeof(Medico), 1, arq_medico)) {
+        if (medico.estatos == 1 && strcmp(medico.especialidade, especialidade) == 0) { // Verifica se o medico esta ativo e se a especialidade corresponde
+            system("color 09");
+            exibir_medico(medico);
         }
     }
 

@@ -97,6 +97,10 @@ void cadastrar_medico (void) {
             }
             printf("Digite a especializacao do medico: ");
             fgets(medico.especialidade, 20, stdin);
+            tam = strlen(medico.especialidade);
+            if (medico.especialidade[tam - 1] == '\n') {
+                medico.especialidade[tam - 1] = '\0'; // Remove o caractere de nova linha
+            }
 
             medico.estatos = 1; // Define o status do médico como ativo
 
