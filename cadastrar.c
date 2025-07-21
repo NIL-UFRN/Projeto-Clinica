@@ -237,11 +237,12 @@ void agendar_consulta (void) {
         if (consulta.id[tam - 1] == '\n') {
             consulta.id[tam - 1] = '\0'; // Remove o caractere de nova linha
         }
+
         printf("Digite o CPF do paciente: ");
         ler_CPF(consulta.CPF_p);
+        getchar(); // Limpa o buffer do teclado
         printf("Digite o CPF do medico: ");
         ler_CPF(consulta.CPF_m);
-        getchar(); // Limpa o buffer do teclado
 
         consulta.estatos = 1; // Define o status da consulta como ativo
 
@@ -253,10 +254,10 @@ void agendar_consulta (void) {
 
     }while (resp != 'S' && resp != 's'); // Verifica se o usuário digitou 'S' ou 's'
 
-        grava_consulta(consulta); // Chama a função para gravar os dados da consulta
+    grava_consulta(consulta); // Chama a função para gravar os dados da consulta
 
-        printf("Consulta agendada com sucesso!\n");
-        delay(1);
+    printf("Consulta agendada com sucesso!\n");
+    delay(1);
 
 
 }

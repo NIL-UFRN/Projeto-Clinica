@@ -54,7 +54,7 @@ void exibir_consulta (Consulta consulta){
 
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("@@                                                         @@\n");
-    printf("@@                     FICHA CONSULTA                       @@\n");
+    printf("@@                     FICHA CONSULTA                      @@\n");
     printf("@@                                                         @@\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
     printf("                                                         \n");
